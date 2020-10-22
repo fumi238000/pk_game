@@ -1,15 +1,9 @@
 require './player'
 
-class Com < Player
+class Com < User
 
-  def initialize
-    @com_goal = START_GOAL 
-  end
-  
   def kick
-
     puts <<~EOS
-
 
 
     どこを守りますか？
@@ -18,24 +12,38 @@ class Com < Player
     3:右
     EOS
   
-     
     #キーパーが守るエリアを決める
-    puts "#{user_protect_area}"
+    user_save_area
   
     #COMのシュートコースの決定
-    puts "#{select_shooting_course}"
+    select_shooting_course
 
     #結果の判定
-    puts "#{goal_determination}"
-    
+    goal_determination
+  end  
+
+
+  def judgment
+    #ユーザーの合計得点
+    puts  "ユーザーの合計得点:#{@user_goal}点"
+      
+    #COMの合計得点
+    puts "COMの合計得点:#{@com_goal}点"
+      
+    if @user_goal > @com_goal
+      puts "勝ちました！！"
+    elsif @@user_goal == @@com_goal
+      puts "引き分けですネ。"      
+    else
+      puts "負けました...膝から崩れ落ちた・・・"
+    end
   end
-  
   
   
   
   private
    
-  #------------------------------
+  
   # COMのシュートコースの決定  
   def select_shooting_course
 
@@ -50,14 +58,12 @@ class Com < Player
        "「 右 」"
      end
 
-    puts  "COMキッカーは#{@select_kick}に蹴った！"
-    #エフェクトが出るとわかりやすいかもしれない
+    puts  "キッカーは#{@select_kick}に蹴った！"
   end
   
-  #-------------------------------------
   
   # Userが守るエリアの決定
-  def user_protect_area
+  def user_save_area
    
     user_select_num = gets.chomp.to_i 
 
@@ -70,12 +76,10 @@ class Com < Player
       "「 右 」"
     end
   
-    puts "ユーザーGKは#{@select_save}へ飛んだ！"
-    #エフェクトが出るとわかりやすいかもしれない
+    puts "GKは#{@select_save}へ飛んだ！"
   end
-    
-  #------------------------------------------
-
+  
+  
   # ゴール判定
   def goal_determination
     if @select_kick == @select_save 
@@ -100,4 +104,8 @@ class Com < Player
     
     EOS
   end
+
+
+
+
 end

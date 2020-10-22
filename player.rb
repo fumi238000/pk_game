@@ -1,15 +1,19 @@
 class Player 
-   attr_reader :@user_goal, :com_goal
-
+   attr_accessor :user_goal, :com_goal
+  
+   #初期値の設定
+   START_GOAL = 0
 
    def initialize
-    @user_goal = @user_goal
+     @user_goal = START_GOAL
+     @com_goal = START_GOAL 
    end
 
-  START_GOAL = 0
 
-  def get_goal_effect
-    puts <<~TEXT
+
+   def get_goal_effect
+     
+     puts <<~TEXT
  
         ----------------------------------
         |                                |
@@ -18,10 +22,11 @@ class Player
         ----------------------------------
 
                  ゴ━━━━(ﾟ∀ﾟ)━━━━ル!!  
-                 #{ @user_goal}
+              
+                
 
-    TEXT
-  end
+     TEXT
+   end
   
 
   def save_effect
@@ -35,7 +40,7 @@ class Player
   
                  ファインセーブ！！
 
-                 #{ @user_goal}
+            
 
     TEXT
   end

@@ -1,6 +1,7 @@
 require './user'
 require './com'
-require './game_controller'
+require './player'
+
 
 puts <<~TEXT
     ----------------------------------
@@ -18,26 +19,34 @@ puts <<~TEXT
 
   TEXT
 
+
+
   user = User.new
   com = Com.new
 
-  #５回お互いに蹴る  
-  1.times{|i|
-    puts "---------------------------------"
-    puts "ユーザーの#{i + 1}人目のキッカーです"
-    puts "---------------------------------"
-
+  #両チーム５回ずつ蹴る  
+  5.times{|i|
+    
+    puts <<~EOS
+          ---------------------------------
+             ユーザーの#{i + 1}人目のキッカーです
+          ---------------------------------
+    EOS
+    
     user.kick
 
-    puts "---------------------------------"
-    puts "COMの#{i + 1}人目のキッカーです"
-    puts "---------------------------------"
+    puts <<~EOS
+          ---------------------------------
+             COMの#{i + 1}人目のキッカーです
+          ---------------------------------
+    EOS
 
     com.kick  
   }
 
+ 
+  # 最終結果の表示
+  com.judgment
   
-  game_controller = Game_controller.new
-  game_controller.judgment
 
 

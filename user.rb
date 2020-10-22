@@ -2,13 +2,7 @@ require './player'
 
 class User  < Player
 
-
-  def initialize
-    @user_goal = START_GOAL
-  end
-
   def kick
-    
     puts <<~EOS
 
  
@@ -19,21 +13,19 @@ class User  < Player
     EOS
 
    #ユーザーのシュートコースの決定
-   puts "#{select_shooting_course}"
+   select_shooting_course
    
    # キーパーが守るエリアを決める
-   puts "#{com_protect_area}"
+   com_save_area
 
    #結果の判定
-   puts "#{goal_determination}"
-  
+   goal_determination
   end
-
 
 
   private
 
-#---------------------------------
+  
   # シュートコースの決定  
   def select_shooting_course
 
@@ -54,14 +46,12 @@ class User  < Player
       "「 右 」"
     end
   
-  puts "ユーザーキッカーは#{@select_kick}に蹴った！"
-  #エフェクトが出るとわかりやすいかもしれない
+  puts "キッカーは#{@select_kick}に蹴った！"
   end
 
-  #-------------------------------------
 
   # COMが守るエリアの決定
-  def com_protect_area
+  def com_save_area
 
     com_select_num = rand(1..3)
 
@@ -74,12 +64,10 @@ class User  < Player
       "「 右 」"
     end
 
-    puts "COM_GKは#{@select_save}へ飛んだ！"
-    #エフェクトが出るとわかりやすいかもしれない
+    puts "GKは#{@select_save}へ飛んだ！"
   end
   
-  #-----------------------------------------
-
+  
   # ゴール判定
   def goal_determination
     if @select_kick == @select_save 
@@ -104,4 +92,6 @@ class User  < Player
     EOS
   end
 
+
+  
 end
