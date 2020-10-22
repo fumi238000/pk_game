@@ -1,4 +1,6 @@
 require './player'
+require './user'
+
 
 class Com < User
 
@@ -25,15 +27,17 @@ class Com < User
 
   def judgment
     #ユーザーの合計得点
-    puts  "ユーザーの合計得点:#{@user_goal}点"
-      
-    #COMの合計得点
-    puts "COMの合計得点:#{@com_goal}点"
-      
-    if @user_goal > @com_goal
-      puts "勝ちました！！"
-    elsif @@user_goal == @@com_goal
-      puts "引き分けですネ。"      
+    puts <<~EOS
+    ユーザーの合計得点:#{@@user_goal}点
+    COMの合計得点:#{@com_goal}点
+    EOS
+
+
+
+    if @@user_goal > @com_goal
+      puts "勝ちました!!!!!!!!!!!!!!!!!!!!"
+    elsif @@user_goal == @com_goal
+      puts "引き分けですネ。" 
     else
       puts "負けました...膝から崩れ落ちた・・・"
     end
@@ -99,9 +103,12 @@ class Com < User
     end
    
     puts <<~EOS
+      COM：#{@com_goal}ゴール
 
-               COM：#{@com_goal}ゴール
-    
+
+
+
+
     EOS
   end
 

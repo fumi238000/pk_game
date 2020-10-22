@@ -5,7 +5,7 @@ class Player
    START_GOAL = 0
 
    def initialize
-     @user_goal = START_GOAL
+     @@user_goal = START_GOAL
      @com_goal = START_GOAL 
    end
 

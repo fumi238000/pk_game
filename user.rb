@@ -31,12 +31,6 @@ class User  < Player
 
     user_select_num = gets.chomp.to_i 
 
-
-    # 1,2,3以外の数字を打ち込んだ場合、ランダムに１、２、３のどれかを返すようにする
-    # if user_select_num == 1 2 3
-    #    user_select_num = rand(1..3)
-    # end
-
     @select_kick = case user_select_num
     when 1
       "「 左 」"
@@ -46,7 +40,7 @@ class User  < Player
       "「 右 」"
     end
   
-  puts "キッカーは#{@select_kick}に蹴った！"
+    puts "キッカーは#{@select_kick}に蹴った！"
   end
 
 
@@ -82,13 +76,16 @@ class User  < Player
         #{get_goal_effect}
       TEXT
 
-      @user_goal += 1
+      @@user_goal += 1
     end
   
     puts <<~EOS
+      ユーザー：#{@@user_goal}ゴール
 
-              ユーザー：#{@user_goal}ゴール
-    
+
+
+
+
     EOS
   end
 
