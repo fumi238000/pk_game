@@ -24,7 +24,7 @@ $ cd pk_game
 $ ruby main.rb
 ```
  
-##　補足
+## 補足
 
  今後の実装予定
  
