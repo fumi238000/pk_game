@@ -5,8 +5,12 @@ require './user'
 class Com < User
 
   def kick
-    puts <<~EOS
-
+ 
+  #---------------------------------
+    #  COMの#{i + 1}人目のキッカーです
+  #---------------------------------
+  
+   puts <<~EOS
 
     どこを守りますか？
     1:左
@@ -28,17 +32,18 @@ class Com < User
   def judgment
     #ユーザーの合計得点
     puts <<~EOS
-    ユーザーの合計得点:#{@@user_goal}点
-    COMの合計得点:#{@com_goal}点
+      ユーザーの合計得点:#{@@user_goal}点
+      COMの合計得点:#{@com_goal}点
     EOS
-
-
-
-    if @@user_goal > @com_goal
+    
+    if  @@user_goal == @com_goal
+      puts "サドンデスです"
+      #１回ずつ行う処理の実装
+    
+    elsif @@user_goal > @com_goal
       puts "勝ちました!!!!!!!!!!!!!!!!!!!!"
-    elsif @@user_goal == @com_goal
-      puts "引き分けですネ。" 
-    else
+    
+    else  @@user_goal > @com_goal
       puts "負けました...膝から崩れ落ちた・・・"
     end
   end

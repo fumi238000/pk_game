@@ -19,34 +19,27 @@ puts <<~TEXT
 
   TEXT
 
-
-
-  user = User.new
-  com = Com.new
-
-  #両チーム５回ずつ蹴る  
-  5.times{|i|
-    
-    puts <<~EOS
-          ---------------------------------
-             ユーザーの#{i + 1}人目のキッカーです
-          ---------------------------------
-    EOS
-    
-    user.kick
-
-    puts <<~EOS
-          ---------------------------------
-             COMの#{i + 1}人目のキッカーです
-          ---------------------------------
-    EOS
-
-    com.kick  
-  }
-
  
-  # 最終結果の表示
-  com.judgment
+#５回蹴る  
+FIVE_KICK = 5  
+    
+
+user = User.new
+com = Com.new
   
 
+  
+#両チーム５回ずつ蹴る
+  kick = 0
+   while kick < FIVE_KICK
+     kick += 1
+     user.kick
+     com.kick
+   end
+  puts "両チーム「#{kick}回」ずつ蹴り終えました!"
+
+ 
+# 最終結果の表示
+  com.judgment
+  
 
