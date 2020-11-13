@@ -20,7 +20,7 @@ class User  < Player
 
    #ユーザーのシュートコースの決定
    select_shooting_course
-   
+
    # キーパーが守るエリアを決める
    com_save_area
 
@@ -29,33 +29,45 @@ class User  < Player
   end
 
 
+
+
   private
 
-  
   # シュートコースの決定  
   def select_shooting_course
 
-    user_select_num = gets.chomp.to_i 
+    while true
+      #ユーザーが「１・２・３」を選択し、蹴る方向を決定
+      select_num = gets.chomp.to_i 
 
-    @select_kick = case user_select_num
-    when 1
-      "「 左 」"
-    when 2
-      "「 中央 」"
-    when 3
-      "「 右 」"
+      @user_select_kick = case select_num
+      when 1
+        "「 左 」"
+        break
+      when 2
+        "「 中央 」"
+        break
+      when 3
+        "「 右 」"
+        break
+      else
+        puts <<~text
+        ----------------------------------
+        error ： 蹴る方向を入力してください
+        ----------------------------------
+        text
+      end
     end
-  
-    puts "キッカーは#{@select_kick}に蹴った！"
+      puts "キッカーは#{@user_select_kick}に蹴った！"
   end
 
 
   # COMが守るエリアの決定
   def com_save_area
 
-    com_select_num = rand(1..3)
+    rand_num = rand(1..3)
 
-    @select_save = case com_select_num
+    @com_select_save = case rand_num
     when 1
       "「 左 」"
     when 2
@@ -64,13 +76,13 @@ class User  < Player
       "「 右 」"
     end
 
-    puts "GKは#{@select_save}へ飛んだ！"
+    puts "GKは#{@com_select_save}へ飛んだ！"
   end
   
   
   # ゴール判定
   def goal_determination
-    if @select_kick == @select_save 
+    if @user_select_kick == @com_select_save 
       
       puts <<~TEXT
          #{save_effect}
@@ -87,14 +99,6 @@ class User  < Player
   
     puts <<~EOS
       ユーザー：#{@@user_goal}ゴール
-
-
-
-
-
     EOS
   end
-
-
-  
 end
