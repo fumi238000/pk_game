@@ -1,16 +1,18 @@
 require './player'
 
 class User  < Player
+#--------------------メインの処理--------------------
 
   def kick
     puts "どこにシュートしますか？" 
+
     # コース一覧の表示
     select_list
 
-    #ユーザーのシュートコースの決定
+    #USERのシュートコースの決定
     select_shooting_course
 
-    # キーパーが守るエリアを決める
+    # COMの守るエリアの決定
     com_save_area
 
     #結果の判定
@@ -18,24 +20,28 @@ class User  < Player
   end
 
 
+#--------------------メソッドの定義--------------------
   private
 
-  # シュートコースの決定  
+  # USERのシュートコースの決定  
   def select_shooting_course
-
     while true
-      #ユーザーが「１・２・３」を選択し、蹴る方向を決定
+      # ユーザーが番号を選択する
       select_num = gets.chomp.to_i 
+
       #コースに応じて対応を決める
-      @user_select_kick = case select_num
+      case select_num
       when 1
-        "「 左 」"
+        @user_select_kick =  RIGHT
+        # puts  CORCE_LIST[:corce][0]
         break
+
       when 2
-        "「 中央 」"
+        @user_select_kick =  CENTER
         break
+
       when 3
-        "「 右 」"
+        @user_select_kick =  LEFT
         break
       else
         puts <<~text
@@ -45,7 +51,7 @@ class User  < Player
         text
       end
     end
-      puts "キッカーは#{@user_select_kick}に蹴った！"
+    puts "キッカーは[[  #{@user_select_kick}  ]]に蹴った！"
   end
 
 
@@ -54,34 +60,32 @@ class User  < Player
 
     rand_num = rand(1..3)
 
-    @com_select_save = case rand_num
+    case rand_num
     when 1
-      "「 左 」"
+      @com_select_save = RIGHT
     when 2
-      "「 中央 」"
-    when 3
-      "「 右 」"
+      @com_select_save = CENTER
+    when 3 
+      @com_select_save = LEFT
     end
 
-    puts "GKは#{@com_select_save}へ飛んだ！"
+    # キックした方向を表示
+    puts "GKは[[  #{@com_select_save}  ]]へ飛んだ！"
+    
   end
   
   
   # ゴール判定
   def goal_determination
     # userとcomの数値を比較
-    if @user_select_kick == @com_select_save 
-      
+    if @user_select_kick == @com_select_save   
       # セーブした場合の処理
-      puts <<~TEXT
-         #{save_effect}
-       TEXT  
+      save_effect
+    
     else
-
+      
       # 得点した場合の処理
-      puts <<~TEXT
-        #{get_goal_effect}
-      TEXT
+      get_goal_effect
       @@user_goal += 1
     end
 
