@@ -30,13 +30,13 @@ com = Com.new
 
   
 #両チーム５回ずつ蹴る
-  kick = 0
-   while kick < FIVE_KICK
-     kick += 1
+  kick_count = 0
+   while kick_count < FIVE_KICK
+     kick_count += 1
      user.kick
      com.kick
    end
-  puts "両チーム「#{kick}回」ずつ蹴り終えました!"
+  puts "両チーム「#{kick_count}回」ずつ蹴り終えました!"
 
  
 # 最終結果の表示
