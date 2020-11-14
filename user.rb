@@ -3,7 +3,7 @@ require './player'
 class User  < Player
 #--------------------メインの処理--------------------
 
-  def kick
+  def user_kick
     puts "どこにシュートしますか？" 
 
     # コース一覧の表示
@@ -21,7 +21,6 @@ class User  < Player
 
 
 #--------------------メソッドの定義--------------------
-  private
 
   # USERのシュートコースの決定  
   def select_shooting_course
@@ -51,7 +50,7 @@ class User  < Player
         text
       end
     end
-    puts "キッカーは[[  #{@user_select_kick}  ]]に蹴った！"
+    puts "User キッカーは[[  #{@user_select_kick}  ]]に蹴った！"
   end
 
 
@@ -70,7 +69,7 @@ class User  < Player
     end
 
     # キックした方向を表示
-    puts "GKは[[  #{@com_select_save}  ]]へ飛んだ！"
+    puts "Com GKは[[  #{@com_select_save}  ]]へ飛んだ！"
     
   end
   
