@@ -69,21 +69,23 @@ class User  < Player
   
   # ゴール判定
   def goal_determination
+    # userとcomの数値を比較
     if @user_select_kick == @com_select_save 
       
+      # セーブした場合の処理
       puts <<~TEXT
          #{save_effect}
-       TEXT
-    
+       TEXT  
     else
 
+      # 得点した場合の処理
       puts <<~TEXT
         #{get_goal_effect}
       TEXT
-
       @@user_goal += 1
     end
-  
+
+    # 現在の合計得点を表示
     puts <<~EOS
       ユーザー：#{@@user_goal}ゴール
     EOS
