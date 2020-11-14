@@ -23,11 +23,3 @@ $ git https://github.com/fumi238000/pk_game.git
 $ cd pk_game
 $ ruby main.rb
 ```
- 
-## 補足
-
- 今後の実装予定
- 
-1. サドンデスの実装
-2. 例外処理への対応
-3. リファクタリング
