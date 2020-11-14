@@ -3,32 +3,19 @@ require './player'
 class User  < Player
 
   def kick
-      # 要修正
-      # ユーザーの#{kickcount}人目のキッカーです
+    puts "どこにシュートしますか？" 
+    # コース一覧の表示
+    select_list
 
-    puts <<~EOS
-    
-    ---------------------------------
+    #ユーザーのシュートコースの決定
+    select_shooting_course
 
-    ---------------------------------
- 
-    どこにシュートしますか？
-    1:左
-    2:真ん中
-    3:右
-    EOS
+    # キーパーが守るエリアを決める
+    com_save_area
 
-   #ユーザーのシュートコースの決定
-   select_shooting_course
-
-   # キーパーが守るエリアを決める
-   com_save_area
-
-   #結果の判定
-   goal_determination
+    #結果の判定
+    goal_determination
   end
-
-
 
 
   private
@@ -39,7 +26,7 @@ class User  < Player
     while true
       #ユーザーが「１・２・３」を選択し、蹴る方向を決定
       select_num = gets.chomp.to_i 
-
+      #コースに応じて対応を決める
       @user_select_kick = case select_num
       when 1
         "「 左 」"
