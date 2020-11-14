@@ -53,7 +53,7 @@ class Com < User
   
   # COMのシュートコースの決定  
   def select_shooting_course
-
+  
     rand_num = rand(1..3)
     
     @com_select_kick = case rand_num
@@ -70,14 +70,17 @@ class Com < User
 
   # ゴール判定
   def goal_determination
+    # userとcomの数値を比較
     if @com_select_kick == @user_select_save 
       
+      # セーブした場合の処理
       puts <<~TEXT
       #{save_effect}
       TEXT
       
       else
-
+      
+      # 得点した場合の処理
       puts <<~TEXT
       #{get_goal_effect}
       TEXT
@@ -86,29 +89,31 @@ class Com < User
     
     end
    
+    # 現在の合計得点を表示
     puts <<~EOS
       COM：#{@com_goal}ゴール
     EOS
   end
 
 
-    #ここの部分を別ファイルで定義したい
-    def judgment
-      #ユーザーの合計得点
-      puts <<~EOS
-        ユーザーの合計得点:#{@@user_goal}点
-        COMの合計得点:#{@com_goal}点
-      EOS
+  #ここの部分を別ファイルで定義したい
+  def judgment
+    #ユーザーの合計得点
+    puts <<~EOS
+      ユーザーの合計得点:#{@@user_goal}点
+      COMの合計得点:#{@com_goal}点
+    EOS
       
-      if  @@user_goal == @com_goal
-        puts "サドンデスです"
-        #１回ずつ行う処理の実装
+    if  @@user_goal == @com_goal
+      puts "サドンデスです"
+      #１回ずつ行う処理の実装
       
-      elsif @@user_goal > @com_goal
-        puts "勝ちました!!!!!!!!!!!!!!!!!!!!"
+    elsif @@user_goal > @com_goal
+      puts "勝ちました!!!!!!!!!!!!!!!!!!!!"
       
-      else  @@user_goal > @com_goal
-        puts "負けました...膝から崩れ落ちた・・・"
-      end
+    else  @@user_goal > @com_goal
+      puts "負けました...膝から崩れ落ちた・・・"
     end
+  end
+
 end

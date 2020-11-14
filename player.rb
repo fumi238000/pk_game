@@ -9,6 +9,9 @@ class Player
     @com_goal = START_GOAL 
   end
 
+
+
+  
   def select_list
     # コースデータを格納する
     corce_list =  [
