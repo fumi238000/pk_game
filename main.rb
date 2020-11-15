@@ -1,6 +1,7 @@
 require './user'
 require './com'
 require './player'
+require './judge'
 require './game_controller'
 
 
@@ -26,6 +27,7 @@ require './game_controller'
 
   user = User.new
   com = Com.new
+  
 
   #５回蹴る  
   FIVE_KICK = 1
@@ -39,10 +41,11 @@ require './game_controller'
    end
 
   puts "両チーム「#{kick_count}回」ずつ蹴り終えました!"
-   
-  # 最終結果の表示
   
-  com.judgment
+  
+  judge = Judge.new
+  # 最終結果の表示
+  judge.judgment
   
 
 
