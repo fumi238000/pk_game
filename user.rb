@@ -4,8 +4,9 @@ class User  < Player
 #--------------------メインの処理--------------------
 
   def user_kick
-    puts "どこにシュートしますか？" 
-
+    #userが蹴る
+    kick_effect
+   
     # コース一覧の表示
     select_list
 
