@@ -4,8 +4,9 @@ class User  < Player
 #--------------------メインの処理--------------------
 
   def user_kick
-    puts "どこにシュートしますか？" 
-
+    #userが蹴る
+    kick_effect
+   
     # コース一覧の表示
     select_list
 
@@ -17,10 +18,16 @@ class User  < Player
 
     #結果の判定
     goal_determination
+
+ 
   end
 
 
 #--------------------メソッドの定義--------------------
+  #userの合計得点の表示
+  def total_goal
+    user = @user_goal
+  end
 
   # USERのシュートコースの決定  
   def select_shooting_course
@@ -32,7 +39,8 @@ class User  < Player
       case select_num
       when 1
         @user_select_kick =  RIGHT
-        # puts  CORCE_LIST[:corce][0]
+        # 番号と方向を都度変更しなければいけないので、ハッシュから取得できるようにしたい
+        # puts  CORCE_LIST[:corce][0]に変更した
         break
 
       when 2
@@ -85,12 +93,12 @@ class User  < Player
       
       # 得点した場合の処理
       get_goal_effect
-      @@user_goal += 1
+      @user_goal += 1
     end
 
     # 現在の合計得点を表示
     puts <<~EOS
-      ユーザー：#{@@user_goal}ゴール
+      ユーザー：#{@user_goal}ゴール
     EOS
   end
 end

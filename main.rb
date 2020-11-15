@@ -1,6 +1,7 @@
 require './user'
 require './com'
 require './player'
+require './judge'
 require './game_controller'
 
 
@@ -26,9 +27,10 @@ require './game_controller'
 
   user = User.new
   com = Com.new
+  
 
   #５回蹴る  
-  FIVE_KICK = 1
+  FIVE_KICK = 0
 
   # PK戦開始
   kick_count = 0
@@ -39,9 +41,16 @@ require './game_controller'
    end
 
   puts "両チーム「#{kick_count}回」ずつ蹴り終えました!"
-   
-  # 最終結果の表示
-  com.judgment
+  
+  # 5回蹴った合計点を取得
+  user = user.total_goal
+  com = com.total_goal
+
+  #5回蹴った合計点を渡す
+  judge = Judge.new(user,com)
+
+  # 結果の判断
+  judge.judgment
   
 
 
