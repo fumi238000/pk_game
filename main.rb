@@ -1,14 +1,14 @@
 require './user'
 require './com'
 require './player'
+require './game_controller'
 
 
+#--------------------メインの処理--------------------
+    
 
-def initialize
-  @USER_GOAL = user_goal
-end
-
-puts <<~TEXT
+# 開始のエフェクト
+  puts <<~TEXT
     ----------------------------------
     |                                |
     |           PK GEAM              |
@@ -24,17 +24,13 @@ puts <<~TEXT
 
   TEXT
 
-#--------------------メソッドの定義--------------------
+  user = User.new
+  com = Com.new
 
+  #５回蹴る  
+  FIVE_KICK = 1
 
-#--------------------メインの処理--------------------
-#５回蹴る  
-FIVE_KICK = 1
-    
-user = User.new
-com = Com.new
-  
-#両チーム、決められた回数蹴る
+  # PK戦開始
   kick_count = 0
    while kick_count < FIVE_KICK
      kick_count += 1
@@ -42,11 +38,15 @@ com = Com.new
      com.com_kick
    end
 
-   puts "#{@USER_GOAL}"
   puts "両チーム「#{kick_count}回」ずつ蹴り終えました!"
    
-
-# 最終結果の表示
+  # 最終結果の表示
   com.judgment
   
 
+
+
+
+#--------------------保留--------------------
+# game_controller = GameController.new
+# game_controller.pk 

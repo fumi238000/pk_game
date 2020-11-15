@@ -96,10 +96,10 @@ end
  #結果の表示
  def result 
   if  @@user_goal > @com_goal
-    puts "勝ちました!!!!!!!!!!!!!!!!!!!!"
+     win_effect
   else
     @@user_goal < @com_goal
-    puts "負けました...膝から崩れ落ちた・・・"
+     lose_effect
   end
  end
 
@@ -113,10 +113,11 @@ def judgment
   EOS
     
   if  @@user_goal == @com_goal
-    # サドンデスに突入！
-    puts "サドンデスです"
     # サドンデス
-      while true 
+    sudden_death_effect
+    
+    # サドンデスの処理
+     while true 
         @@user_goal = @@user_goal
         @com_goal += 1
       
