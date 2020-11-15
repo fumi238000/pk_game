@@ -30,7 +30,7 @@ require './game_controller'
   
 
   #５回蹴る  
-  FIVE_KICK = 0
+  FIVE_KICK = 5
 
   # PK戦開始
   kick_count = 0
