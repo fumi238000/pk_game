@@ -48,6 +48,8 @@ end
 #  end
 
 
+##ここにuserとcomのインスタンス変数をどのようにして運んでくるか！が勝負！
+
 
 def total_goal
   puts <<~EOS

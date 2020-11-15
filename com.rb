@@ -1,7 +1,7 @@
 require './player'
 require './user'
 
-class Com < User
+class Com < Player
   #--------------------メインの処理--------------------
   
   def com_kick
@@ -18,9 +18,22 @@ class Com < User
     
     #結果の判定
     goal_determination
+
+
   end  
   
   #--------------------メソッドの定義--------------------
+  #comの合計得点の表示
+  def total_goal
+    puts "#{@com_goal}"
+  end
+
+
+
+
+
+  
+
   # COMのシュートコースの決定  
 def select_shooting_course
   rand_num = rand(1..3)
@@ -92,6 +105,10 @@ end
 end
 
 #-------------------変更中---------------------
+
+
+
+
 
 #  #結果の表示
 #  def result 

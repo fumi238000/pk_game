@@ -13,7 +13,7 @@ class Player
   CENTER = "<<----中央---->>"
 
   def initialize
-    @@user_goal = START_GOAL
+    @user_goal = START_GOAL
     @com_goal = START_GOAL 
   end
 
@@ -28,6 +28,16 @@ class Player
   def select_list
     CORCE_LIST.each {|list|  puts  list[:number] + ":" + list[:corce] }
   end
+
+
+#--------------------メソッド--------------------
+
+
+
+
+
+
+
 
 #--------------------エフェクト--------------------
 
