@@ -41,6 +41,7 @@ require './game_controller'
   puts "両チーム「#{kick_count}回」ずつ蹴り終えました!"
    
   # 最終結果の表示
+  
   com.judgment
   
 

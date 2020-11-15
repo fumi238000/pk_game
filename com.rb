@@ -106,12 +106,9 @@ end
 
 #ここの部分を別ファイルで定義したい
 def judgment
-  #ユーザーの合計得点
-  puts <<~EOS
-    ユーザーの合計得点:#{@@user_goal}点
-    COMの合計得点:#{@com_goal}点
-  EOS
-    
+  #ユーザーの合計得点の表示
+  total_goal
+
   if  @@user_goal == @com_goal
     # サドンデス
     sudden_death_effect
@@ -135,4 +132,24 @@ def judgment
     result
   end
 end
+
+
+def total_goal
+  puts <<~EOS
+  ----------------------------------------
+
+    ユーザー合計得点  :#{@@user_goal}点
+    COM合計得点      :#{@com_goal}点
+
+  ----------------------------------------
+  EOS
+
 end
+
+
+
+
+
+end
+
+
