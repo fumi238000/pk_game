@@ -25,6 +25,14 @@ require './game_controller'
 
   TEXT
 
+
+
+
+#--------------------試し--------------------
+ game_controller = GameController.new
+ game_controller.pk
+
+
   user = User.new
   com = Com.new
   
@@ -56,6 +64,3 @@ require './game_controller'
 
 
 
-#--------------------保留--------------------
-# game_controller = GameController.new
-# game_controller.pk 

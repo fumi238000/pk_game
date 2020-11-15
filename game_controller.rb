@@ -1,47 +1,97 @@
 # require './user'
 # require './com'
 # require './player'
+# require './judge'
 
 
-# class GameController  
+
+class GameController
+# while true
+#   ５回蹴る
+#   user_kick
+#   com_kick 
+# end
 
 
+
+#--------------------メイン処理--------------------
+
+def pk
+  user_kick
+  com_kick
+  
+end
+  
 #--------------------メソッドの定義--------------------
 
 
 
-# def pk
-#   #開始画面
-#   start_effect
+ #ユーザーが蹴る場合
+ def user_kick
+  puts <<~TEXT
+    ユーザーが蹴るコースを選択
+    comが守るコースを決定
+    結果発表
+  TEXT
 
-#   #pkの処理
-#   kick_count = 0
-#    while kick_count < FIVE_KICK
-#      kick_count += 1
-#     #  user.user_kick
-#     #  com.com_kick
-#    end
-# end
+ end
+ 
+  #  user.kick
+  #  com.save
+  #  judge
+ 
+#COMが蹴る場合
+def com_kick
+  puts <<~TEXT
+    ユーザーが守るコースを選択
+    comが蹴るコースを決定
+    結果発表
+  TEXT
 
-
-
-
-
-
-
-
-
-
-
-
-
+end
 
 
 
-#--------------------初期値の設定--------------------
+
+
+
+#--------------------------------------------
+#結果の判定
+def judgement
+  puts "俺がジャッジする！"
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  #user.save
+  #com.kick
+  #judge
+
 
 # #５回蹴る  
-# FIVE_KICK = 1
+# FIVE_KICK = 5
+
+# # PK戦開始
+# kick_count = 0
+#  while kick_count < FIVE_KICK
+#    kick_count += 1
+#    user.user_kick
+#    com.com_kick
+#  end
 
 
 
@@ -50,59 +100,5 @@
 
 
 
-#--------------------エフェクト--------------------
-
-# # 開始のエフェクト
-# def start_effect
-#   puts <<~TEXT
-#     ----------------------------------
-#     |                                |
-#     |           PK GEAM              |
-#     |                                |
-#     ----------------------------------
-   
-#     ----------------------------------
-#     |                                |
-#     |           KICK OFF!            |
-#     |                                |
-#     ----------------------------------
-    
-
-#   TEXT
-# end
-
-
-
-#   # ゴールが決まった時のエフェクト 
-#   def get_goal_effect   
-#     puts <<~TEXT
- 
-#         ----------------------------------
-#         |                                |
-#         |         GOOOOOOOOOAL!!!!       |
-#         |                                |
-#         ----------------------------------
-
-#                  ゴ━━━━(ﾟ∀ﾟ)━━━━ル!!  
-              
-                
-
-#     TEXT
-#   end
-  
-#   # ゴールが止められた時のエフェクト 
-#   def save_effect
-#     puts <<~TEXT
-  
-#         ----------------------------------
-#         |                                |
-#         |     ××××  NO GOAL  ××××××      |
-#         |                                |
-#         ----------------------------------
-  
-#                  ファインセーブ！！
-  
-#     TEXT
-#   end
-
-# end
+#締め
+end
