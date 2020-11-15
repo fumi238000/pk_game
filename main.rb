@@ -30,7 +30,7 @@ require './game_controller'
   
 
   #５回蹴る  
-  FIVE_KICK = 5
+  FIVE_KICK = 1
 
   # PK戦開始
   kick_count = 0
@@ -44,15 +44,22 @@ require './game_controller'
   
 
   #5回蹴った段階の合計点を取得
-  FIVE_KICK_USER_GOAL= user.total_goal
-  FIVE_KICK_COM_GOAL = com.total_goal
+  # FIVE_KICK_USER_GOAL= user.total_goal
+  # FIVE_KICK_COM_GOAL = com.total_goal
 
+
+  user = user.total_goal
+  com = com.total_goal
+
+puts "ilになっているぞ！なぜ！"
+  p user
+  p com
 
   #5回蹴った段階の合計点を渡す
-  judge = Judge.new(user: USERGOAL, com: COMGOAL)
+  judge = Judge.new(user,com)
 
   # 結果の判断
-  judge.judgment
+  judge.total_goal
   
 
 

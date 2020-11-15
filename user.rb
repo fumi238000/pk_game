@@ -25,16 +25,8 @@ class User  < Player
 #--------------------メソッドの定義--------------------
   #userの合計得点の表示
   def total_goal
-    puts "#{@user_goal}"
+    user = @user_goal
   end
-
-
-
-
-
-
-
-
 
   # USERのシュートコースの決定  
   def select_shooting_course

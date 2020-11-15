@@ -25,14 +25,8 @@ class Com < Player
   #--------------------メソッドの定義--------------------
   #comの合計得点の表示
   def total_goal
-    puts "#{@com_goal}"
+    user = @com_goal
   end
-
-
-
-
-
-  
 
   # COMのシュートコースの決定  
 def select_shooting_course
