@@ -39,9 +39,10 @@ require './game_controller'
 
   #５回蹴る  
   FIVE_KICK = 5
+  #蹴る回数のカウント
+  kick_count = 0
 
   # PK戦開始
-  kick_count = 0
    while kick_count < FIVE_KICK
      kick_count += 1
      user.user_kick

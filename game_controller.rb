@@ -15,11 +15,16 @@ class GameController
 
 
 #--------------------メイン処理--------------------
+FIVE_KICK = 5
 
 def pk
-  user_kick
-  com_kick
-  
+  kick_count = 0 
+  while kick_count < FIVE_KICK
+    kick_count += 1
+    puts "#{kick_count}目"
+    user_kick
+    com_kick
+  end
 end
   
 #--------------------メソッドの定義--------------------
