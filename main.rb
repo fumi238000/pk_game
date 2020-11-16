@@ -29,13 +29,14 @@ require './game_controller'
 
 
 #--------------------試し--------------------
- game_controller = GameController.new
- game_controller.pk
+game_controller = GameController.new
+game_controller.pk
+
+user = User.new
+com = Com.new
 
 
-  user = User.new
-  com = Com.new
-  
+
 
   #５回蹴る  
   FIVE_KICK = 5

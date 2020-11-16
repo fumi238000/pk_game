@@ -1,7 +1,7 @@
 require './game_controller'
 
 
-class Player 
+class Player < GameController
 
 #--------------------共通処理(user.com)--------------------
   attr_accessor :user_goal, :com_goal

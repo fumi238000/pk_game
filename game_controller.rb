@@ -1,102 +1,81 @@
-# require './user'
-# require './com'
-# require './player'
-# require './judge'
+require './user'
+require './player'
 
 
+class GameController 
+#--------------------初期値--------------------
+  FIVE_KICK = 5
+  
+  # user = User.new
+  # com = Com.new
 
-class GameController
-# while true
-#   ５回蹴る
-#   user_kick
-#   com_kick 
-# end
-
-
-
+ 
+ 
 #--------------------メイン処理--------------------
-FIVE_KICK = 5
-
 def pk
   kick_count = 0 
   while kick_count < FIVE_KICK
     kick_count += 1
-    puts "#{kick_count}目"
-    user_kick
-    com_kick
+
+    #Userの蹴るターン
+    #以下をあとでみやすいように編集する
+    puts "userの#{kick_count}人目のキッカーです"
+    #未実装
+    #user_kick
+
+    #comの蹴るターン
+    puts "comの#{kick_count}人目のキッカーです"
+    #未実装
+    #com_kick
+  
   end
 end
   
-#--------------------メソッドの定義--------------------
+#--------------------Userが蹴る--------------------
 
-
-
- #ユーザーが蹴る場合
+#以下が実行できれば問題ない！
+ #ユーザーが蹴る
+ #
  def user_kick
-  puts <<~TEXT
-    ユーザーが蹴るコースを選択
-    comが守るコースを決定
-    結果発表
-  TEXT
+  #userが蹴る
+  kick_effect
+ 
+  # コース一覧の表示
+  select_list
 
- end
- 
-  #  user.kick
-  #  com.save
-  #  judge
- 
-#COMが蹴る場合
+  #USERのシュートコースの決定
+  user.select_shooting_course
+
+  # COMの守るエリアの決定
+  com.com_save_area
+
+  #結果の判定
+  goal_determination
+end
+
+
+#--------------------comが蹴る------------------------
+
+#以下が実行できれば問題ない！
 def com_kick
-  puts <<~TEXT
-    ユーザーが守るコースを選択
-    comが蹴るコースを決定
-    結果発表
-  TEXT
-
-end
-
-
-
-
-
-
-#--------------------------------------------
-#結果の判定
-def judgement
-  puts "俺がジャッジする！"
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  #userが守る
+  gk_effect 
   
-  #user.save
-  #com.kick
-  #judge
+  # コース一覧の表示
+  select_list
+  
+  #USERの守るエリアの決定
+  user_save_area
+  
+  #COMのシュートコースの決定
+  select_shooting_course
+  
+  #結果の判定
+  goal_determination
 
 
-# #５回蹴る  
-# FIVE_KICK = 5
+end  
 
-# # PK戦開始
-# kick_count = 0
-#  while kick_count < FIVE_KICK
-#    kick_count += 1
-#    user.user_kick
-#    com.com_kick
-#  end
 
 
 

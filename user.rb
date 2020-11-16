@@ -3,33 +3,28 @@ require './player'
 class User  < Player
 #--------------------メインの処理--------------------
 
-  def user_kick
-    #userが蹴る
-    kick_effect
+  # def user_kick
+  #   #userが蹴る
+  #   kick_effect
    
-    # コース一覧の表示
-    select_list
+  #   # コース一覧の表示
+  #   select_list
 
-    #USERのシュートコースの決定
-    select_shooting_course
+  #   #USERのシュートコースの決定
+  #   select_shooting_course
 
-    # COMの守るエリアの決定
-    com_save_area
+  #   # COMの守るエリアの決定
+  #   # com_save_area
 
-    #結果の判定
-    goal_determination
+  #   #結果の判定
+  #   # goal_determination
 
  
-  end
+  # end
 
 
-#--------------------メソッドの定義--------------------
-  #userの合計得点の表示
-  def total_goal
-    user = @user_goal
-  end
-
-  # USERのシュートコースの決定  
+  #--------------------メソッドの定義--------------------
+  # ①USERのシュートコースの決定する
   def select_shooting_course
     while true
       # ユーザーが番号を選択する
@@ -62,27 +57,36 @@ class User  < Player
   end
 
 
-  # COMが守るエリアの決定
-  def com_save_area
-
-    rand_num = rand(1..3)
-
-    case rand_num
-    when 1
-      @com_select_save = RIGHT
-    when 2
-      @com_select_save = CENTER
-    when 3 
-      @com_select_save = LEFT
-    end
-
-    # キックした方向を表示
-    puts "Com GKは[[  #{@com_select_save}  ]]へ飛んだ！"
-    
+  # ②USERの守るエリアの決定する
+  def user_save_area
+    while true
+      # ユーザーが番号を選択する
+      select_num = gets.chomp.to_i 
+      
+      #コースに応じて対応
+      case select_num
+        when 1
+          @user_select_save = RIGHT
+          break
+        when 2
+          @user_select_save =  CENTER
+          break
+        when 3
+          @user_select_save = LEFT
+          break
+        else
+          puts <<~text
+          ----------------------------------
+          error ： 守る方向を入力してください
+          ----------------------------------
+          text
+        end 
+      end
+    puts "User GKは[[  #{@user_select_save}  ]]に飛んだ！"
   end
-  
-  
-  # ゴール判定
+
+
+  # ③ゴール判定
   def goal_determination
     # userとcomの数値を比較
     if @user_select_kick == @com_select_save   
@@ -101,4 +105,11 @@ class User  < Player
       ユーザー：#{@user_goal}ゴール
     EOS
   end
+
+
+  # ④userの合計得点の表示
+  def total_goal
+    user = @user_goal
+  end
+
 end
