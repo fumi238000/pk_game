@@ -3,20 +3,14 @@ require './game_controller'
 
 class Player < GameController
 
-#--------------------共通処理(user.com)--------------------
+#--------------------共通処理--------------------
   attr_accessor :user_goal, :com_goal
 
-  #初期値の設定
-  START_GOAL = 0
+  # 方向
   RIGHT = "<<<<<<<<--------右"
   LEFT = "左-------->>>>>>>>"
   CENTER = "<<<----中央---->>>"
-
-  def initialize
-    @user_goal = START_GOAL
-    @com_goal = START_GOAL 
-  end
-
+  
   # コースリスト
   CORCE_LIST = [
     {number: "1" ,corce: RIGHT},
@@ -29,19 +23,9 @@ class Player < GameController
     CORCE_LIST.each {|list|  puts  list[:number] + ":  [" + list[:corce] + "]"}
   end
 
+#<<<<<--------------------エフェクト-------------------->>>>>
 
-#--------------------メソッド--------------------
-
-
-
-
-
-
-
-
-#--------------------エフェクト--------------------
-
-  # ゴールが決まった時のエフェクト 
+#--------------------ゴールが決まった時--------------------
   def get_goal_effect   
     puts <<~TEXT
  
@@ -60,7 +44,7 @@ class Player < GameController
     TEXT
   end
   
-  # ゴールが止められた時のエフェクト 
+#--------------------セーブされた時--------------------
   def save_effect
     puts <<~TEXT
 
@@ -79,7 +63,7 @@ class Player < GameController
     TEXT
   end
 
-    # キッカーの場合のエフェクト 
+#--------------------キッカーの場合--------------------
     def kick_effect
       puts <<~TEXT
   
@@ -95,7 +79,7 @@ class Player < GameController
       TEXT
     end
 
-    # GKの場合のエフェクト 
+  #--------------------GKの場合--------------------
     def gk_effect
       puts <<~TEXT
   
