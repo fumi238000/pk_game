@@ -1,88 +1,91 @@
-require './user'
-require './player'
+#未実装
 
 
-class GameController 
-#--------------------初期値--------------------
-  FIVE_KICK = 5
+# require './user'
+# require './player'
+
+
+# class GameController 
+# #--------------------初期値--------------------
+#   FIVE_KICK = 5
   
-  # user = User.new
-  # com = Com.new
+#   # user = User.new
+#   # com = Com.new
 
  
  
-#--------------------メイン処理--------------------
-def pk
-  kick_count = 0 
-  while kick_count < FIVE_KICK
-    kick_count += 1
+# #--------------------メイン処理--------------------
+# def pk
+#   kick_count = 0 
+#   while kick_count < FIVE_KICK
+#     kick_count += 1
 
-    #Userの蹴るターン
-    #以下をあとでみやすいように編集する
-    puts "userの#{kick_count}人目のキッカーです"
-    #未実装
-    #user_kick
+#     #Userの蹴るターン
+#     #以下をあとでみやすいように編集する
+#     puts "userの#{kick_count}人目のキッカーです"
+#     #未実装
+#     #user_kick
 
-    #comの蹴るターン
-    puts "comの#{kick_count}人目のキッカーです"
-    #未実装
-    #com_kick
+#     #comの蹴るターン
+#     puts "comの#{kick_count}人目のキッカーです"
+#     #未実装
+#     #com_kick
   
-  end
-end
+#   end
+# end
   
-#--------------------Userが蹴る--------------------
+# #--------------------Userが蹴る--------------------
 
-#以下が実行できれば問題ない！
- #ユーザーが蹴る
- #
- def user_kick
-  #userが蹴る
-  kick_effect
+# #以下が実行できれば問題ない！
+#  #ユーザーが蹴る
+#  #
+#  def user_kick
+#   #userが蹴る
+#   kick_effect
  
-  # コース一覧の表示
-  select_list
+#   # コース一覧の表示
+#   select_list
 
-  #USERのシュートコースの決定
-  user.select_shooting_course
+#   #USERのシュートコースの決定
+#   user.select_shooting_course
 
-  # COMの守るエリアの決定
-  com.com_save_area
+#   # COMの守るエリアの決定
+#   com.com_save_area
 
-  #結果の判定
-  goal_determination
-end
+#   #結果の判定
+#   goal_determination
+# end
 
 
-#--------------------comが蹴る------------------------
+# #--------------------comが蹴る------------------------
 
-#以下が実行できれば問題ない！
-def com_kick
-  #userが守る
-  gk_effect 
+# #以下が実行できれば問題ない！
+# def com_kick
+#   #userが守る
+#   gk_effect 
   
-  # コース一覧の表示
-  select_list
+#   # コース一覧の表示
+#   select_list
   
-  #USERの守るエリアの決定
-  user_save_area
+#   #USERの守るエリアの決定
+#   user_save_area
   
-  #COMのシュートコースの決定
-  select_shooting_course
+#   #COMのシュートコースの決定
+#   select_shooting_course
   
-  #結果の判定
-  goal_determination
+#   #結果の判定
+#   goal_determination
 
 
-end  
-
-
-
+# end  
 
 
 
 
 
 
-#締め
-end
+
+
+
+# #締め
+# end
