@@ -44,8 +44,12 @@ require './game_controller'
 # PK戦開始
    while kick_count < FIVE_KICK
      kick_count += 1
- #--------------------USERキック--------------------
-    # エフェクト
+     
+     #--------------------USERキック--------------------
+     # 何人目のキッカーか表示
+     puts "USER#{kick_count}人目のキッカーです"
+
+     # エフェクト
     player.kick_effect
    
     # コース一覧の表示
@@ -67,6 +71,9 @@ require './game_controller'
     judge.user_goal_determination(user_select: user_select, com_select: com_select)
 
  #--------------------COMキック--------------------
+    # 何人目のキッカーか表示
+    puts "COM#{kick_count}人目のキッカーです"
+ 
     # エフェクト
     player.gk_effect 
       
