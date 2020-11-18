@@ -46,9 +46,12 @@ require './game_controller'
      kick_count += 1
      
      #--------------------USERキック--------------------
-     # 何人目のキッカーか表示
-     puts "USER#{kick_count}人目のキッカーです"
+    # 何人目のキッカーか表示
+    puts <<~TEXT
 
+      "USER 「#{kick_count}人目」のキッカーです"
+    
+      TEXT
      # エフェクト
     player.kick_effect
    
@@ -72,7 +75,11 @@ require './game_controller'
 
  #--------------------COMキック--------------------
     # 何人目のキッカーか表示
-    puts "COM#{kick_count}人目のキッカーです"
+    puts <<~TEXT
+
+      "COM 「#{kick_count}人目」のキッカーです"
+    
+    TEXT
  
     # エフェクト
     player.gk_effect 
