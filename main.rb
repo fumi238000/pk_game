@@ -26,10 +26,10 @@ require './game_controller'
 # 「ゴールした数」の初期値
   START_GOAL = 0
 
-  user = User.new
-  com = Com.new
-  judge = Judge.new(user_goal: START_GOAL, com_goal: START_GOAL)
-  player = Player.new
+  # user = User.new
+  # com = Com.new
+  # judge = Judge.new(user_goal: START_GOAL, com_goal: START_GOAL)
+  # player = Player.new
 
 
   #初期設定では5回ずつ蹴る  
@@ -37,6 +37,15 @@ require './game_controller'
 
   #蹴る回数のカウント
   kick_count = 0
+
+
+  
+  game_controller = GameController.new
+  game_controller.pk
+
+
+
+
 
 
 #以下の処理をgame_controllerで実行可能にする予定

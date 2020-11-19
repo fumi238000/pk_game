@@ -99,7 +99,7 @@ class Judge < Player
     puts <<~TEXT
     ----------------------------------------
     
-      UESR  <<< 合計得点 :#{@user_goal}点 >>>
+      USER  <<< 合計得点 :#{@user_goal}点 >>>
 
       COM   <<< 合計得点 :#{@com_goal}点 >>>
     
