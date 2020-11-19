@@ -1,91 +1,117 @@
-#未実装
+require './user'
+require './com'
+require './player'
 
+class GameController
 
-# require './user'
-# require './player'
+#--------------------定数--------------------
+  #初期設定では5回ずつ蹴る  
+  FIVE_KICK = 5
 
-
-# class GameController 
-# #--------------------初期値--------------------
-#   FIVE_KICK = 5
+  # 「ゴールした数」の初期値
+  START_GOAL = 0
   
-#   # user = User.new
-#   # com = Com.new
+#--------------------メソッド--------------------
+  # PK戦
+  def pk
+    start_pk_effect
 
- 
- 
-# #--------------------メイン処理--------------------
-# def pk
-#   kick_count = 0 
-#   while kick_count < FIVE_KICK
-#     kick_count += 1
+    #インスタンスの生成
+    user = User.new
+    com = Com.new
+    player = Player.new
+    judge = Judge.new(user_goal: START_GOAL, com_goal: START_GOAL)
+    
+    #蹴る回数のカウント
+    kick_count = 0
 
-#     #Userの蹴るターン
-#     #以下をあとでみやすいように編集する
-#     puts "userの#{kick_count}人目のキッカーです"
-#     #未実装
-#     #user_kick
+  #<<<<<--------------------start PK-------------------->>>>>
+  # PK戦開始
+  while kick_count < FIVE_KICK
+    kick_count += 1
+    
+      #--------------------USERキック--------------------
+    # 何人目のキッカーか表示
+    user.kicker_num(kick_count)
 
-#     #comの蹴るターン
-#     puts "comの#{kick_count}人目のキッカーです"
-#     #未実装
-#     #com_kick
-  
-#   end
-# end
-  
-# #--------------------Userが蹴る--------------------
+    # キッカーであることを表示
+    user.kicker_inform
 
-# #以下が実行できれば問題ない！
-#  #ユーザーが蹴る
-#  #
-#  def user_kick
-#   #userが蹴る
-#   kick_effect
- 
-#   # コース一覧の表示
-#   select_list
+    # コース一覧の表示
+    user.select_list
 
-#   #USERのシュートコースの決定
-#   user.select_shooting_course
+    # USERのシュートコースの決定
+    user.select_kick_course
 
-#   # COMの守るエリアの決定
-#   com.com_save_area
+    # userのシュートコースを取得
+    user_select = user.select_kick
 
-#   #結果の判定
-#   goal_determination
-# end
+    # COMの守るエリアの決定
+    com.com_save_area
+    
+    # COMの守るエリアの取得
+    com_select = com.select_save
+    
+    # 結果の判定
+    judge.user_goal_determination(user_select: user_select, com_select: com_select)
 
+    #--------------------COMキック--------------------
+    # 何人目のキッカーか表示
+    com.kicker_num(kick_count)
+    
+    # GKであることを表示
+    user.gk_inform
+      
+    # コース一覧の表示
+    com.select_list
+      
+    # USERの守るエリアの決定
+    user.user_save_area
+    
+    # USERの守るエリアの取得
+    user_select = user.select_save
+    
+    # COMのシュートコースの決定
+    com.select_kick_course
+    
+    # userのシュートコースを取得
+    com_select = com.select_kick
 
-# #--------------------comが蹴る------------------------
+    # 結果の判定
+    judge.com_goal_determination(user_select: user_select, com_select: com_select)
 
-# #以下が実行できれば問題ない！
-# def com_kick
-#   #userが守る
-#   gk_effect 
-  
-#   # コース一覧の表示
-#   select_list
-  
-#   #USERの守るエリアの決定
-#   user_save_area
-  
-#   #COMのシュートコースの決定
-#   select_shooting_course
-  
-#   #結果の判定
-#   goal_determination
+    end
 
+    puts "両チーム「#{kick_count}回」ずつ蹴り終えました!"
+    #<<<<<--------------------finish PK-------------------->>>>>
+    # 結果の判断
+    judge.judgment
 
-# end  
-
-
-
-
-
-
-
+  end
 
 
-# #締め
-# end
+
+
+
+  #<<<<<--------------------privateメソッド-------------------->>>>>
+  private
+
+  # 開始のエフェクト
+  def start_pk_effect
+    puts <<~TEXT
+      ----------------------------------
+      |                                |
+      |           PK GEAM              |
+      |                                |
+      ----------------------------------
+    
+      ----------------------------------
+      |                                |
+      |           KICK OFF!            |
+      |                                |
+      ----------------------------------
+      
+
+    TEXT
+  end
+end

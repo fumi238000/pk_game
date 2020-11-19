@@ -48,14 +48,16 @@ class Com < Player
     com = @com_select_save
   end
   
+  #--------------------キッカーの番号--------------------
+  # 何人目かを表示する
+  def kicker_num(kick_count)
+    puts <<~TEXT
   
+      "COM 「#{kick_count}人目」のキッカーです"
+      
+    TEXT
+  end
   
-  
-  
-  
-
-
-
   #<<<<<--------------------privateメソッド-------------------->>>>>
   
   private
@@ -88,6 +90,4 @@ class Com < Player
     TEXT
     
   end
-
-
 end
