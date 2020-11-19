@@ -73,7 +73,16 @@ class User  < Player
     user = @user_select_save
   end 
   
+
   
+  # 何人目かを知らせるエフェクト
+  def kicker_num(kick_count)
+    puts <<~TEXT
+
+      "USER 「#{kick_count}人目」のキッカーです"
+
+    TEXT
+  end
 
 
 

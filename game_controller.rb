@@ -33,11 +33,7 @@ class GameController
     
     #--------------------USERキック--------------------
   # 何人目のキッカーか表示
-  puts <<~TEXT
-
-    "USER 「#{kick_count}人目」のキッカーです"
-  
-    TEXT
+  user.kicker_num(kick_count)
     # エフェクト
   player.kick_effect
 
@@ -61,12 +57,8 @@ class GameController
 
   #--------------------COMキック--------------------
   # 何人目のキッカーか表示
-  puts <<~TEXT
-
-    "COM 「#{kick_count}人目」のキッカーです"
+  com.kicker_num(kick_count)
   
-  TEXT
-
   # エフェクト
   player.gk_effect 
     

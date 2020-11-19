@@ -50,8 +50,15 @@ class Com < Player
   
   
   
+
+  # 何人目かを知らせるエフェクト
+  def kicker_num(kick_count)
+    puts <<~TEXT
   
-  
+      "COM 「#{kick_count}人目」のキッカーです"
+      
+    TEXT
+  end
   
 
 
@@ -88,6 +95,9 @@ class Com < Player
     TEXT
     
   end
+  
+
+  
 
 
 end
