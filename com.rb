@@ -48,10 +48,8 @@ class Com < Player
     com = @com_select_save
   end
   
-  
-  
-
-  # 何人目かを知らせるエフェクト
+  #--------------------キッカーの番号--------------------
+  # 何人目かを表示する
   def kicker_num(kick_count)
     puts <<~TEXT
   
@@ -60,9 +58,6 @@ class Com < Player
     TEXT
   end
   
-
-
-
   #<<<<<--------------------privateメソッド-------------------->>>>>
   
   private
@@ -95,9 +90,4 @@ class Com < Player
     TEXT
     
   end
-  
-
-  
-
-
 end

@@ -2,8 +2,6 @@ require './player'
 require './user'
 require './com'
 
-
-
 class Judge < Player
 #--------------初期値--------------------------
   attr_accessor :user_goal, :com_goal, :user_select, :com_select
@@ -17,13 +15,13 @@ class Judge < Player
   
 #--------------USERキックの判定--------------------------
   def user_goal_determination(**params)
-   
+    
     # USERとCOMの選んだコースを取得する
     select_params(params)
     
     # userとcomの数値を比較
     if @user_select == @com_select   
-
+    
       # セーブした場合の処理
       save_effect
       
@@ -69,7 +67,7 @@ class Judge < Player
 
   end
  #--------------5回蹴り終わった後の勝敗判定--------------------------
-  def judgment
+  def judgment 
     # USERの合計得点の表示
     total_goal
   
@@ -81,12 +79,12 @@ class Judge < Player
       #勝敗の表示
       result
     end
+
   end
 
   #--------------サドンデスのメソッド--------------------------
   # サドンデス
   def sudden_death
-    
     #エフェクトの表示
     sudden_death_effect
     
@@ -106,6 +104,7 @@ class Judge < Player
     ----------------------------------------
     TEXT
   end
+  
   
   #自動で勝敗を決定する
   def auto_kick
