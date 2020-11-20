@@ -1,6 +1,7 @@
 require './player'
 
 class Com < Player
+  
 #--------------------COMのシュートコースの決定する--------------------
   def select_kick_course
     rand_num = rand(1..3)

@@ -1,12 +1,14 @@
 require './user'
 require './com'
 require './player'
+require'./effect'
 
 class GameController
+  include Effect
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
-  FIVE_KICK = 5
+  FIVE_KICK = 0
 
   # 「ゴールした数」の初期値
   START_GOAL = 0
@@ -89,29 +91,4 @@ class GameController
 
   end
 
-
-
-
-
-  #<<<<<--------------------privateメソッド-------------------->>>>>
-  private
-
-  # 開始のエフェクト
-  def start_pk_effect
-    puts <<~TEXT
-      ----------------------------------
-      |                                |
-      |           PK GEAM              |
-      |                                |
-      ----------------------------------
-    
-      ----------------------------------
-      |                                |
-      |           KICK OFF!            |
-      |                                |
-      ----------------------------------
-      
-
-    TEXT
-  end
 end
