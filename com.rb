@@ -1,6 +1,10 @@
 require './player'
+require'./effect'
+require './message_dialog'
 
 class Com < Player
+  include Effect
+  include MessageDialog
   
 #--------------------COMのシュートコースの決定する--------------------
   def select_kick_course
@@ -17,7 +21,7 @@ class Com < Player
     end
 
     # 蹴るエフェクト
-    com_kick_effect
+    com_kick_effect(@com_select_kick)
     
   end
   #--------------------COMの守るコースの決定する--------------------
@@ -36,7 +40,7 @@ class Com < Player
     end
     
     # 守るエフェクト
-    com_save_effect
+    com_save_message(@com_select_save)
   end
   
   #--------------------COMのシュートコースを変数に格納--------------------
@@ -49,46 +53,4 @@ class Com < Player
     com = @com_select_save
   end
   
-  #--------------------キッカーの番号--------------------
-  # 何人目かを表示する
-  def kicker_num(kick_count)
-    puts <<~TEXT
-  
-      "COM 「#{kick_count}人目」のキッカーです"
-      
-    TEXT
-  end
-  
-  #<<<<<--------------------privateメソッド-------------------->>>>>
-  
-  private
-  # 蹴る時のエフェクト
-  def com_kick_effect
-    
-    puts <<~TEXT
-  
-    -------------------------KICK-----------------------------
-      
-         Com キッカーは[[  #{@com_select_kick}  ]]に蹴った！
-    
-    -------------------------KICK-----------------------------
-      
-    TEXT
-
-  end
-
-
-  # 守る時のエフェクト
-  def com_save_effect
-    puts <<~TEXT
-    
-    -------------------------SAVE-----------------------------
-    
-            Com GKは[[  #{@com_select_save}  ]]へ飛んだ！
-    
-    -------------------------SAVE-----------------------------
-    
-    TEXT
-    
-  end
 end

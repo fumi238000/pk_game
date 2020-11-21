@@ -1,6 +1,11 @@
 require './player'
+require './effect'
+require './message_dialog'
 
 class User  < Player
+  include Effect
+  include MessageDialog
+
 #--------------------USERのシュートコースの決定する--------------------
   def select_kick_course
     while true
@@ -21,17 +26,13 @@ class User  < Player
         @user_select_kick =  LEFT
         break
       else
-        puts <<~text
-        ----------------------------------
-        error ： 蹴る方向を入力してください
-        ----------------------------------
-        text
+        #エラーメッセージ
+        not_select_kick_message
       end
     end
 
     # 蹴るエフェクト
-    user_kick_effect
-  
+    user_kick_message(@user_select_kick)  
   end
   
   #--------------------USERの守るコースの決定する--------------------
@@ -52,15 +53,12 @@ class User  < Player
         @user_select_save = LEFT
         break
       else
-        puts <<~text
-        ----------------------------------
-        error ： 守る方向を入力してください
-        ----------------------------------
-        text
+        #エラーメッセージ
+        not_select_save
       end 
     end
     # 守るエフェクト
-    user_save_effect
+    user_save_message(@user_select_save)
   end
   
 #--------------------USERのシュートコースを変数に格納-----------------
@@ -83,66 +81,4 @@ class User  < Player
     TEXT
   end
 
-#--------------------Kicker_Inform--------------------
-  def kicker_inform
-    puts <<~TEXT
-
-
-
-        ----------------------------------
-                あなたはキッカーです
-              どこにシュートしますか？
-      
-                  お選びください
-        ----------------------------------
-              
-    TEXT
-  end
-
-  #--------------------GK_Inform--------------------
-  def gk_inform
-    puts <<~TEXT
-
-
-
-        ----------------------------------
-                あなたは GK です
-                どこを守りますか？
-      
-                  お選びください
-        ----------------------------------
-              
-    TEXT
-  end
-
-
-  #<<<<<--------------------privateメソッド-------------------->>>>>
-  
-  private
-  
-  # 蹴る時のエフェクト  
-  def user_kick_effect
-    puts <<~TEXT
-    
-    -------------------------KICK-----------------------------
-    
-    User キッカーは[[  #{@user_select_kick}  ]]に蹴った！
-    
-    -------------------------KICK-----------------------------
-    
-    TEXT
-  end
-  
-  # 守る時のエフェクト
-  def user_save_effect
-    puts <<~TEXT
-    
-    -------------------------SAVE-----------------------------
-    
-    User GKは[[  #{@user_select_save}  ]]に飛んだ！
-    
-    -------------------------SAVE----------------------------
-    
-    TEXT
-  end
 end
