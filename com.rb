@@ -20,8 +20,8 @@ class Com < Player
       @com_select_kick = LEFT
     end
 
-    # 蹴るエフェクト
-    com_kick_effect(@com_select_kick)
+    # 蹴る
+    com_kick_message(@com_select_kick)
     
   end
   #--------------------COMの守るコースの決定する--------------------
@@ -39,7 +39,7 @@ class Com < Player
       @com_select_save = LEFT
     end
     
-    # 守るエフェクト
+    # 守る
     com_save_message(@com_select_save)
   end
   

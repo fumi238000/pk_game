@@ -54,7 +54,7 @@ class User  < Player
         break
       else
         #エラーメッセージ
-        not_select_save
+        not_select_save_message
       end 
     end
     # 守るエフェクト
