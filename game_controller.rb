@@ -1,12 +1,16 @@
 require './user'
 require './com'
 require './player'
+require './effect'
+require './message_dialog'
 
 class GameController
+  include Effect
+  include MessageDialog
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
-  FIVE_KICK = 5
+  FIVE_KICK = 0
 
   # 「ゴールした数」の初期値
   START_GOAL = 0
@@ -21,6 +25,7 @@ class GameController
     com = Com.new
     player = Player.new
     judge = Judge.new(user_goal: START_GOAL, com_goal: START_GOAL)
+     
     
     #蹴る回数のカウント
     kick_count = 0
@@ -31,11 +36,8 @@ class GameController
     kick_count += 1
     
       #--------------------USERキック--------------------
-    # 何人目のキッカーか表示
-    user.kicker_num(kick_count)
-
     # キッカーであることを表示
-    user.kicker_inform
+    user_kicker_message(kick_count)
 
     # コース一覧の表示
     user.select_list
@@ -56,11 +58,8 @@ class GameController
     judge.user_goal_determination(user_select: user_select, com_select: com_select)
 
     #--------------------COMキック--------------------
-    # 何人目のキッカーか表示
-    com.kicker_num(kick_count)
-    
     # GKであることを表示
-    user.gk_inform
+    com_kicker_message(kick_count)
       
     # コース一覧の表示
     com.select_list
@@ -81,37 +80,13 @@ class GameController
     judge.com_goal_determination(user_select: user_select, com_select: com_select)
 
     end
+    
+    finish_pk_message(kick_count)
 
-    puts "両チーム「#{kick_count}回」ずつ蹴り終えました!"
     #<<<<<--------------------finish PK-------------------->>>>>
     # 結果の判断
     judge.judgment
 
   end
 
-
-
-
-
-  #<<<<<--------------------privateメソッド-------------------->>>>>
-  private
-
-  # 開始のエフェクト
-  def start_pk_effect
-    puts <<~TEXT
-      ----------------------------------
-      |                                |
-      |           PK GEAM              |
-      |                                |
-      ----------------------------------
-    
-      ----------------------------------
-      |                                |
-      |           KICK OFF!            |
-      |                                |
-      ----------------------------------
-      
-
-    TEXT
-  end
 end
