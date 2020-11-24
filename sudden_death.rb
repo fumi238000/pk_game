@@ -1,20 +1,35 @@
-class SuddenDeath
+require './message_dialog'
+require './effect'
 
-#--------------サドンデスのメソッド--------------------------
-  # サドンデス
-  def sudden_death
+class SuddenDeath
+  include Effect
+  include MessageDialog
+#--------------呼び出されるメソッド--------------------------
+  
+# サドンデス
+  def sudden_death(user_goal, com_goal)
+
     #エフェクトの表示
     sudden_death_effect
       
-    #勝ち負けをランダムに決定
-    auto_kick
-  end  
+    #シュートの威力を決定
+    decide_shooting_power
+
+    #COMの数値を決定する
+    decide_com_num
+
+    ##お互いに奇数もしくは偶数だった場合勝ち、そうでない場合は負けにする
+    sudden_death_judge
+    
+  end
+
   
+
   #--------------サドンデスのメソッド--------------------------
   
-  #自動で勝敗を決定する
-  def auto_kick
-    #シュートの威力を決定
+  #シュートの威力を決定する
+  def decide_shooting_power
+    #「シュートの威力」の入力を促す
      shooting_power_message
   
 
@@ -36,66 +51,57 @@ class SuddenDeath
        
       end
     end
+  end
 
-    # selectにtrueかfaleseを与える
-    if @select.even?
-      @select = true
-    else
-      @select= false
+    #<<------------------------------------ここをリファクタリングできる------------------------------------------>>
+    #メソッドにするのも検討する
+
+    #COMの数値を決定する
+    def decide_com_num
+      @num  = rand(100)
+    end 
+  
+
+  #<<------------------------------------------------------------------------------>>
+  
+  # private
+     
+    def sudden_death_judge
+
+      #２つの数字の合計を変数に格納
+      decide_num =  @select + @num
+          
+     #合計値が奇数で勝ち、偶数で負け
+      if decide_num.odd?
+         win
+      else 
+         lose 
+      end
     end
     
-
-    @num  = rand(100)
-
-    # numにtrueかfaleseを与える
-    if @num.even?
-      @num = true
-    else
-      @num = false
-    end
-     
-  
-    #USERとCOMが
-    if @num == @select
-      # 勝ちルート
+    
+    def win
       puts "ユーザが蹴った！"
       get_goal_effect
-      @user_goal +=1
-
-      puts "comが蹴った！"
-      save_effect
-      result
       
-    else
-
-      # 負けルート 
+      puts "comが蹴った！"
+      save_effect
+    
+      win_effect
+      
+    end      
+    
+    
+    
+    def lose
       puts "ユーザが蹴った！"
       save_effect
-
+      
       puts "comが蹴った！"
       get_goal_effect
-      @com_goal +=1
-      result
 
-    end
-  end
-
-  # 結果の表示
-  def result 
-    if  @user_goal > @com_goal
-      win_effect
-    else
-      @user_goal < @com_goal
       lose_effect
-    end
-  end
-
-
-  # USERと COMの選んだコースを取得する
-  def select_params(**params)
-    @user_select = params[:user_select]
-    @com_select = params[:com_select]
-  end
-
+    end 
+      
 
 end

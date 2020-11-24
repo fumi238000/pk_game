@@ -10,7 +10,7 @@ class GameController
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
-  FIVE_KICK = 1
+  FIVE_KICK = 0
 
   # 「ゴールした数」の初期値
   START_GOAL = 0
@@ -25,6 +25,7 @@ class GameController
     com = Com.new
     player = Player.new
     judge = Judge.new(user_goal: START_GOAL, com_goal: START_GOAL)
+     
     
     #蹴る回数のカウント
     kick_count = 0
