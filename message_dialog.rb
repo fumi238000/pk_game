@@ -26,6 +26,8 @@ module MessageDialog
          ----------------------------------
     
     TEXT
+
+
   end
   
 
@@ -156,6 +158,8 @@ module MessageDialog
     どれくらいの威力で蹴りますか？
     0~100%の間で入力してください
     TEXT
+
+    print "数値を入力してください > "
   end
 
   def power_kick_message(select)

@@ -10,6 +10,7 @@ class User  < Player
   def select_kick_course
     while true
       # USERが番号を選択する
+      print "コースを数値で入力してください > "
       select_num = gets.chomp.to_i 
 
       #コースに応じて対応を決める
@@ -39,6 +40,7 @@ class User  < Player
   def user_save_area
     while true
       # USERが番号を選択する
+      print "コースを数値で入力してください > "
       select_num = gets.chomp.to_i 
       
       #コースに応じて対応
