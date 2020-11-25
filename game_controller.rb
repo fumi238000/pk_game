@@ -22,7 +22,6 @@ class GameController
     #インスタンスの生成
     user = User.new
     com = Com.new
-    player = Player.new
     judge = Judge.new(user_goal: 0, com_goal: 0)
     
     # プレイヤー側がハンデありの場合 
