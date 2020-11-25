@@ -10,11 +10,10 @@ class GameController
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
-  FIVE_KICK = 0
+  GAME_NUM = 0
 
-  # 「ゴールした数」の初期値
-  START_GOAL = 0
-  
+  # ハンデの初期値
+  HANDICAP = 0
 #--------------------メソッド--------------------
   # PK戦
   def pk
@@ -24,8 +23,10 @@ class GameController
     user = User.new
     com = Com.new
     player = Player.new
-    judge = Judge.new(user_goal: START_GOAL, com_goal: START_GOAL)
-     
+    judge = Judge.new(user_goal: 0, com_goal: 0)
+    
+    # プレイヤー側がハンデありの場合 
+    # judge = Judge.new(user_goal: HANDICAP, com_goal: 0)
     
     #蹴る回数のカウント
     kick_count = 0
