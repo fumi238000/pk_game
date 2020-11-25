@@ -10,7 +10,7 @@ class GameController
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
-  GAME_NUM = 0
+  GAME_NUM = 2
 
   # ハンデの初期値
   HANDICAP = 0
@@ -22,7 +22,6 @@ class GameController
     #インスタンスの生成
     user = User.new
     com = Com.new
-    player = Player.new
     judge = Judge.new(user_goal: 0, com_goal: 0)
     
     # プレイヤー側がハンデありの場合 
@@ -33,7 +32,7 @@ class GameController
 
   #<<<<<--------------------start PK-------------------->>>>>
   # PK戦開始
-  while kick_count < FIVE_KICK
+  while kick_count < GAME_NUM
     kick_count += 1
     
       #--------------------USERキック--------------------
