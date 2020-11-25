@@ -24,7 +24,7 @@ class User  < Player
       
       #コースを変数に格納
       #あとで変数名を修正する
-      select_num = CORSE_LIST[select_num]
+      select_num = CORSE_LIST[select_num - 1]
   
       # 蹴るエフェクト
       user_kick_message(select_num)  
@@ -45,7 +45,7 @@ class User  < Player
         not_select_save_message
       end 
 
-      select_num = CORSE_LIST[select_num]
+      select_num  = CORSE_LIST[select_num - 1]
     
       # 守るエフェクト
       user_save_message(select_num)
