@@ -3,8 +3,10 @@ require './user'
 require './com'
 require './message_dialog'
 require './sudden_death'
+require './effect'
 
-class Judge < Player
+class Judge
+  include Effect
   include MessageDialog
 
 #--------------初期値--------------------------
