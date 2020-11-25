@@ -11,14 +11,20 @@ class Player
   CENTER = "<<<----中央---->>>"
   
   # コースリスト
-  CORCE_LIST = [
-    {number: "1" ,corce: RIGHT},
-    {number: "2" ,corce: CENTER},
-    {number: "3" ,corce: LEFT},
+  CORSE_LIST = [
+    {num: "1", couse: RIGHT},
+    {num: "2", couse: CENTER},
+    {num: "3", couse: LEFT},  
   ]
 
   # プレイヤーに提示する選択肢の表示   
-  def select_list
-    CORCE_LIST.each {|list|  puts  list[:number] + ":  [" + list[:corce] + "]"}
+  def select_list    
+    CORSE_LIST.each.with_index(1) do |corse,i|
+      puts  "#{i}.[ #{corse[:couse]} ]"
+    end
   end
+  
+  #リストの数
+  LIST_LENGTH = 1..CORSE_LIST.size 
+
 end

@@ -26,16 +26,18 @@ module MessageDialog
          ----------------------------------
     
     TEXT
+
+
   end
   
 
   # USER蹴る時  
-  def user_kick_message(user_select_kick)
+  def user_kick_message(select_num)
     puts <<~TEXT
       
          -------------------------KICK-----------------------------
 
-               User キッカーは[[  #{user_select_kick}  ]]に蹴った！
+              User キッカーは[[  #{select_num[:couse]}  ]]に蹴った！
 
          -------------------------KICK-----------------------------
       
@@ -44,12 +46,12 @@ module MessageDialog
     
     
   # USER守る時
-  def user_save_message(user_select_save)
+  def user_save_message(select_num)
     puts <<~TEXT
         
           -------------------------SAVE-----------------------------
 
-                  User GKは[[  #{user_select_save}  ]]に飛んだ！
+                  User GKは[[  #{select_num[:couse]}  ]]に飛んだ！
 
           -------------------------SAVE-----------------------------
       
@@ -156,6 +158,8 @@ module MessageDialog
     どれくらいの威力で蹴りますか？
     0~100%の間で入力してください
     TEXT
+
+    print "数値を入力してください > "
   end
 
   def power_kick_message(select)

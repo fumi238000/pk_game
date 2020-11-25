@@ -25,7 +25,7 @@ class Com < Player
     
   end
   #--------------------COMの守るコースの決定する--------------------
-  def com_save_area
+  def com_save_corse
     
     #comの守るエリアをランダムに決定
     rand_num = rand(1..3)

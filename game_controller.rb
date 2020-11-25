@@ -49,7 +49,7 @@ class GameController
     user_select = user.select_kick
 
     # COMの守るエリアの決定
-    com.com_save_area
+    com.com_save_corse
     
     # COMの守るエリアの取得
     com_select = com.select_save
@@ -65,7 +65,7 @@ class GameController
     com.select_list
       
     # USERの守るエリアの決定
-    user.user_save_area
+    user.user_save_course
     
     # USERの守るエリアの取得
     user_select = user.select_save
