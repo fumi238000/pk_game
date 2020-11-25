@@ -9,58 +9,47 @@ class User  < Player
 #--------------------USERのシュートコースの決定する--------------------
   def select_kick_course
     while true
+
       # USERが番号を選択する
       print "コースを数値で入力してください > "
       select_num = gets.chomp.to_i 
 
       #コースに応じて対応を決める
-      case select_num
-      when 1
-        @user_select_kick =  RIGHT
-        # 番号と方向を都度変更しなければいけないので、ハッシュから取得できるようにしたい
-        # puts  CORCE_LIST[:corce][0]みたいに
-        break
-      when 2
-        @user_select_kick =  CENTER
-        break
-      when 3
-        @user_select_kick =  LEFT
-        break
-      else
-        #エラーメッセージ
-        not_select_kick_message
-      end
+      # 1..3は配列の長さを変数に格納する
+      break if (LIST_LENGTH).include?(select_num)
+      
+      #エラーメッセージ
+      not_select_kick_message
     end
-
-    # 蹴るエフェクト
-    user_kick_message(@user_select_kick)  
+      
+      #コースを変数に格納
+      #あとで変数名を修正する
+      select_num = CORSE_LIST[select_num]
+  
+      # 蹴るエフェクト
+      user_kick_message(select_num)  
   end
   
   #--------------------USERの守るコースの決定する--------------------
-  def user_save_area
+  def user_save_course
     while true
       # USERが番号を選択する
       print "コースを数値で入力してください > "
       select_num = gets.chomp.to_i 
       
-      #コースに応じて対応
-      case select_num
-      when 1
-        @user_select_save = RIGHT
-        break
-      when 2
-        @user_select_save =  CENTER
-        break
-      when 3
-        @user_select_save = LEFT
-        break
-      else
-        #エラーメッセージ
+      #コースに応じて対応を決める
+      # 1..3は配列の長さを変数に格納する
+      break if (LIST_LENGTH).include?(select_num)
+
+      #エラーメッセージ
         not_select_save_message
       end 
-    end
-    # 守るエフェクト
-    user_save_message(@user_select_save)
+
+      select_num = CORSE_LIST[select_num]
+    
+      # 守るエフェクト
+      user_save_message(select_num)
+   
   end
   
 #--------------------USERのシュートコースを変数に格納-----------------
