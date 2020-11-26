@@ -3,14 +3,16 @@ require './com'
 require './player'
 require './effect'
 require './message_dialog'
+require './course_list'
 
 class GameController
   include Effect
   include MessageDialog
+  include CourseList
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
-  GAME_NUM = 2
+  GAME_NUM = 1
 
   # ハンデの初期値
   HANDICAP = 0
@@ -34,52 +36,28 @@ class GameController
   # PK戦開始
   while kick_count < GAME_NUM
     kick_count += 1
-    
-      #--------------------USERキック--------------------
-    # キッカーであることを表示
-    user_kicker_message(kick_count)
 
-    # コース一覧の表示
-    user.select_list
-
+    #--------------------USERキック--------------------
     # USERのシュートコースの決定
-    user.select_kick_course
-
-    # userのシュートコースを取得
-    user_select = user.select_kick
-
+    user_select = user.select_kick_course(kick_count)
+    
     # COMの守るエリアの決定
-    com.com_save_corse
-    
-    # COMの守るエリアの取得
-    com_select = com.select_save
-    
+    com_select = com.com_save_course
+        
     # 結果の判定
     judge.user_goal_determination(user_select: user_select, com_select: com_select)
 
-    #--------------------COMキック--------------------
-    # GKであることを表示
-    com_kicker_message(kick_count)
-      
-    # コース一覧の表示
-    com.select_list
-      
+    #--------------------COMキック-------------------- 
     # USERの守るエリアの決定
-    user.user_save_course
-    
-    # USERの守るエリアの取得
-    user_select = user.select_save
-    
+    user_select = user.user_save_course(kick_count)
+        
     # COMのシュートコースの決定
-    com.select_kick_course
+    com_select = com.select_kick_course
     
-    # userのシュートコースを取得
-    com_select = com.select_kick
-
     # 結果の判定
     judge.com_goal_determination(user_select: user_select, com_select: com_select)
 
-    end
+  end
     
     finish_pk_message(kick_count)
 

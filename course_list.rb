@@ -1,13 +1,9 @@
-require'./effect'
+# 切り分けがうまくできないため、保留中
 
-class Player 
-  include Effect
-#--------------------共通処理--------------------
-  attr_accessor :user_goal, :com_goal
 
-  #以下corse_listに切り分け予定
+module CourseList
 
-  # 方向
+# 方向
   RIGHT = "<<<<<<<<--------右"
   LEFT = "左-------->>>>>>>>"
   CENTER = "<<<----中央---->>>"
@@ -17,6 +13,10 @@ class Player
     {num: "1", couse: RIGHT},
     {num: "2", couse: CENTER},
     {num: "3", couse: LEFT},  
+
+    #追加された時に、エラーにならないようにする
+    {num: "4", couse: "右上"},  
+    
   ]
 
   # プレイヤーに提示する選択肢の表示   

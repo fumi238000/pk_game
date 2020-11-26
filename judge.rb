@@ -89,7 +89,6 @@ class Judge
   def result 
 
      #お互いの結果を表示するメソッドを呼び出す
-
     if  @user_goal > @com_goal
        win_effect
     else
