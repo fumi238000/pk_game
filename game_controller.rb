@@ -42,9 +42,6 @@ class GameController
     # キッカーであることを表示
     user_kicker_message(kick_count)
 
-    # コース一覧の表示
-    select_list
-
     # USERのシュートコースの決定
     user.select_kick_course
 
@@ -63,9 +60,7 @@ class GameController
     #--------------------COMキック--------------------
     # GKであることを表示
     com_kicker_message(kick_count)
-      
-    # コース一覧の表示
-    select_list
+  
       
     # USERの守るエリアの決定
     user.user_save_course

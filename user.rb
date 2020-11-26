@@ -9,6 +9,8 @@ class User  < Player
 #--------------------USERのシュートコースの決定する--------------------
   def select_kick_course
     while true
+      # コース一覧の表示
+      select_list
 
       # USERが番号を選択する
       print "コースを数値で入力してください > "
@@ -31,6 +33,10 @@ class User  < Player
   #--------------------USERの守るコースの決定する--------------------
   def user_save_course
     while true
+      
+      # コース一覧の表示
+      select_list
+      
       # USERが番号を選択する
       print "コースを数値で入力してください > "
       select_num = gets.chomp.to_i 
