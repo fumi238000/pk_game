@@ -7,8 +7,13 @@ class User  < Player
   include MessageDialog
 
 #--------------------USERのシュートコースの決定する--------------------
-  def select_kick_course
+  def select_kick_course(kick_count)
+
     while true
+
+      # キッカーであることを表示
+      user_kicker_message(kick_count)
+
       # コース一覧の表示
       select_list
 
@@ -31,9 +36,12 @@ class User  < Player
   end
   
   #--------------------USERの守るコースの決定する--------------------
-  def user_save_course
+  def user_save_course(kick_count)
     while true
       
+      #GKであることを表示
+      com_kicker_message(kick_count)
+
       # コース一覧の表示
       select_list
       
