@@ -8,39 +8,25 @@ class Com < Player
   
 #--------------------COMのシュートコースの決定する--------------------
   def select_kick_course
-    rand_num = rand(1..3)
+    rand_num = rand(LIST_LENGTH)
     
-    #comのシュートコースをランダムに決定
-    case rand_num
-    when 1
-      @com_select_kick = RIGHT
-    when 2
-      @com_select_kick = CENTER
-    when 3
-      @com_select_kick = LEFT
-    end
-
+    select_num  = COURSE_LIST[rand_num - 1]
+  
     # 蹴る
-    com_kick_message(@com_select_kick)
-    
+     kick_message(select_num)
+
   end
   #--------------------COMの守るコースの決定する--------------------
   def com_save_course
     
     #comの守るエリアをランダムに決定
-    rand_num = rand(1..3)
-    
-    case rand_num
-    when 1
-      @com_select_save = RIGHT
-    when 2
-      @com_select_save = CENTER
-    when 3 
-      @com_select_save = LEFT
-    end
+    rand_num = rand(LIST_LENGTH)
+
+    select_num  = COURSE_LIST[rand_num - 1]
     
     # 守る
-    com_save_message(@com_select_save)
+    save_message(select_num)
+
   end
   
 end

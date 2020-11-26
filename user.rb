@@ -32,7 +32,8 @@ class User  < Player
       select_num = COURSE_LIST[select_num - 1]
   
       # 蹴るエフェクト
-      user_kick_message(select_num)  
+      kick_message(select_num)  
+
   end
   
   #--------------------USERの守るコースの決定する--------------------
@@ -59,8 +60,7 @@ class User  < Player
       select_num  = COURSE_LIST[select_num - 1]
     
       # 守るエフェクト
-      user_save_message(select_num)
-   
+      save_message(select_num)
   end
   
 #--------------------キッカーの番号--------------------

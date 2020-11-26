@@ -29,36 +29,6 @@ module MessageDialog
 
 
   end
-  
-
-  # USER蹴る時  
-  def user_kick_message(select_num)
-    puts <<~TEXT
-      
-         -------------------------KICK-----------------------------
-
-              User キッカーは[[  #{select_num[:couse]}  ]]に蹴った！
-
-         -------------------------KICK-----------------------------
-      
-    TEXT
-  end
-    
-    
-  # USER守る時
-  def user_save_message(select_num)
-    puts <<~TEXT
-        
-          -------------------------SAVE-----------------------------
-
-                  User GKは[[  #{select_num[:couse]}  ]]に飛んだ！
-
-          -------------------------SAVE-----------------------------
-      
-    TEXT
-  end
-    
-    
     
 #--------------------------------------------------COMのメッセージ
     
@@ -85,32 +55,36 @@ module MessageDialog
 
   end
   
-  # COM蹴る時のエフェクト
-  def com_kick_message(com_select_kick)
+
+#------------------------------------------------------ 共通のメッセージ
+
+  # 蹴る時のメッセージ
+  def kick_message(select_num)
     
     puts <<~TEXT
     
          -------------------------KICK-----------------------------
     
-                Com キッカーは[[  #{com_select_kick}  ]]に蹴った！
+                キッカーは[[  #{select_num[:couse]}  ]]に蹴った！
     
          -------------------------KICK-----------------------------
     
     TEXT
   end
   
-  # COM 守る時のエフェクト
-  def com_save_message(com_select_save)
+  # 守る時のメッセージ
+  def save_message(select_num)
     puts <<~TEXT
     
          -------------------------SAVE-----------------------------
          
-                  Com GKは[[  #{com_select_save}  ]]へ飛んだ！
+                  GKは[[  #{select_num[:couse]}  ]]へ飛んだ！
          
          -------------------------SAVE-----------------------------
     
     TEXT
   end
+
 
   
       
