@@ -1,5 +1,5 @@
 require './player'
-require'./effect'
+require './effect'
 require './message_dialog'
 
 class Com < Player

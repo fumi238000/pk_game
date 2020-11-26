@@ -3,10 +3,12 @@ require './com'
 require './player'
 require './effect'
 require './message_dialog'
+require './corse_list'
 
 class GameController
   include Effect
   include MessageDialog
+  include CorseList
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
@@ -34,13 +36,14 @@ class GameController
   # PK戦開始
   while kick_count < GAME_NUM
     kick_count += 1
+
     
       #--------------------USERキック--------------------
     # キッカーであることを表示
     user_kicker_message(kick_count)
 
     # コース一覧の表示
-    user.select_list
+    select_list
 
     # USERのシュートコースの決定
     user.select_kick_course
@@ -62,7 +65,7 @@ class GameController
     com_kicker_message(kick_count)
       
     # コース一覧の表示
-    com.select_list
+    select_list
       
     # USERの守るエリアの決定
     user.user_save_course

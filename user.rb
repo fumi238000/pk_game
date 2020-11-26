@@ -14,8 +14,7 @@ class User  < Player
       print "コースを数値で入力してください > "
       select_num = gets.chomp.to_i 
 
-      #コースに応じて対応を決める
-      # 1..3は配列の長さを変数に格納する
+      #必要な数値が入力されているか？
       break if (LIST_LENGTH).include?(select_num)
       
       #エラーメッセージ
@@ -23,7 +22,6 @@ class User  < Player
     end
       
       #コースを変数に格納
-      #あとで変数名を修正する
       select_num = CORSE_LIST[select_num - 1]
   
       # 蹴るエフェクト
@@ -37,8 +35,7 @@ class User  < Player
       print "コースを数値で入力してください > "
       select_num = gets.chomp.to_i 
       
-      #コースに応じて対応を決める
-      # 1..3は配列の長さを変数に格納する
+      #必要な数値が入力されているか？
       break if (LIST_LENGTH).include?(select_num)
 
       #エラーメッセージ
