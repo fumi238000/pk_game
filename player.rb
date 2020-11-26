@@ -5,13 +5,15 @@ class Player
 #--------------------共通処理--------------------
   attr_accessor :user_goal, :com_goal
 
+  #以下corse_listに切り分け予定
+
   # 方向
   RIGHT = "<<<<<<<<--------右"
   LEFT = "左-------->>>>>>>>"
   CENTER = "<<<----中央---->>>"
   
   # コースリスト
-  CORSE_LIST = [
+  COURSE_LIST = [
     {num: "1", couse: RIGHT},
     {num: "2", couse: CENTER},
     {num: "3", couse: LEFT},  
@@ -19,12 +21,12 @@ class Player
 
   # プレイヤーに提示する選択肢の表示   
   def select_list    
-    CORSE_LIST.each.with_index(1) do |corse,i|
-      puts  "#{i}.[ #{corse[:couse]} ]"
+    COURSE_LIST.each.with_index(1) do |course,i|
+      puts  "#{i}.[ #{course[:couse]} ]"
     end
   end
   
   #リストの数
-  LIST_LENGTH = 1..CORSE_LIST.size 
+  LIST_LENGTH = 1..COURSE_LIST.size 
 
 end

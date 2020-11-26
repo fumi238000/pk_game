@@ -29,7 +29,7 @@ class User  < Player
     end
       
       #コースを変数に格納
-      select_num = CORSE_LIST[select_num - 1]
+      select_num = COURSE_LIST[select_num - 1]
   
       # 蹴るエフェクト
       user_kick_message(select_num)  
@@ -56,22 +56,12 @@ class User  < Player
         not_select_save_message
       end 
 
-      select_num  = CORSE_LIST[select_num - 1]
+      select_num  = COURSE_LIST[select_num - 1]
     
       # 守るエフェクト
       user_save_message(select_num)
    
   end
-  
-#--------------------USERのシュートコースを変数に格納-----------------
-  def select_kick
-    user = @user_select_kick
-  end
-  
-#--------------------USERの守るコースを変数に格納--------------------
-  def select_save
-    user = @user_select_save
-  end 
   
 #--------------------キッカーの番号--------------------
   # 何人目かを表示する

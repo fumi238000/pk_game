@@ -25,7 +25,7 @@ class Com < Player
     
   end
   #--------------------COMの守るコースの決定する--------------------
-  def com_save_corse
+  def com_save_course
     
     #comの守るエリアをランダムに決定
     rand_num = rand(1..3)
@@ -41,16 +41,6 @@ class Com < Player
     
     # 守る
     com_save_message(@com_select_save)
-  end
-  
-  #--------------------COMのシュートコースを変数に格納--------------------
-  def select_kick
-    com = @com_select_kick
-  end
-  
-  #--------------------COMのシュートコースを変数に格納--------------------
-  def select_save
-    com = @com_select_save
   end
   
 end
