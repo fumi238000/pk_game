@@ -10,7 +10,7 @@ class GameController
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
-  GAME_NUM = 1
+  GAME_NUM = 5
 
   # ハンデの初期値
   HANDICAP = 0

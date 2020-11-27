@@ -14,8 +14,15 @@ class Player
   COURSE_LIST = [
     {num: "1", couse: RIGHT},
     {num: "2", couse: CENTER},
-    {num: "3", couse: LEFT},  
-  ]
+    {num: "3", couse: LEFT},
+
+    #以下追加する場合
+    # {num: "1", couse: "真ん中"},
+    # {num: "2", couse: "右上"},
+    # {num: "3", couse: "右下"},
+    # {num: "4", couse: "左上"},
+    # {num: "5", couse: "左下"},
+ ]
 
   # プレイヤーに提示する選択肢の表示   
   def select_list    
