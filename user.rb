@@ -2,11 +2,12 @@ require './player'
 require './effect'
 require './message_dialog'
 
+
 class User  < Player
   include Effect
   include MessageDialog
 
-#--------------------USERのシュートコースの決定する--------------------
+  #--------------------USERのシュートコースの決定する--------------------
   def select_kick_course(kick_count)
     while true
 

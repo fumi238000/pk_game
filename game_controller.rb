@@ -3,12 +3,10 @@ require './com'
 require './player'
 require './effect'
 require './message_dialog'
-require './course_list'
 
 class GameController
   include Effect
   include MessageDialog
-  include CourseList
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る  
