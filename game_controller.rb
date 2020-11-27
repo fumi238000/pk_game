@@ -39,29 +39,31 @@ class GameController
 
     #--------------------USERキック--------------------
     # USERのシュートコースの決定
-    user_select = user.select_kick_course(kick_count)
-    
+    kick_num = user.select_kick_course(kick_count)
+     
     # COMの守るエリアの決定
-    com_select = com.com_save_course
-        
+    save_num = com.com_save_course  
+    
     # 結果の判定
-    judge.user_goal_determination(user_select: user_select, com_select: com_select)
+    judge.user_goal_determination(kick_num, save_num)
 
     #--------------------COMキック-------------------- 
     # USERの守るエリアの決定
-    user_select = user.user_save_course(kick_count)
+    save_num = user.user_save_course(kick_count)
         
     # COMのシュートコースの決定
-    com_select = com.select_kick_course
+    kick_num = com.select_kick_course
     
     # 結果の判定
-    judge.com_goal_determination(user_select: user_select, com_select: com_select)
+    judge.com_goal_determination(kick_num, save_num)
 
   end
     
     finish_pk_message(kick_count)
 
+    
     #<<<<<--------------------finish PK-------------------->>>>>
+    
     # 結果の判断
     judge.judgment
 

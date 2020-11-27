@@ -13,20 +13,18 @@ class Judge
   attr_accessor :user_goal, :com_goal, :user_select, :com_select
   
   def initialize(**params)
-    @user_goal   = params[:user_goal]
-    @com_goal    = params[:com_goal]
-    @user_select = params[:user_select]
-    @com_select  = params[:com_select]    
+    @user_goal = params[:user_goal]
+    @com_goal  = params[:com_goal]
   end
   
 #--------------USERキックの判定--------------------------
-  def user_goal_determination(**params)
+  def user_goal_determination(kick_num, save_num)
     
-    # USERとCOMの選んだコースを取得する
-    select_params(params)
-    
+    kick_message(kick_num)
+    save_message(save_num)
+
     # userとcomの数値を比較
-    if @user_select == @com_select   
+    if kick_num == save_num   
     
       # セーブした場合の処理
       save_effect
@@ -45,13 +43,13 @@ class Judge
   end
 
 #--------------COMキックの判定--------------------------
-  def com_goal_determination(**params)
+  def com_goal_determination(kick_num, save_num)
     
-    # USERとCOMの選んだコースを取得する
-    select_params(params)
+    save_message(save_num)
+    kick_message(kick_num)
 
     # userとcomの数値を比較
-    if @com_select== @user_select 
+    if kick_num == save_num   
       
       # セーブした場合の処理
       save_effect
@@ -61,7 +59,7 @@ class Judge
       # 得点した場合の処理
       get_goal_effect
       @com_goal += 1
-      
+
     end
     
     # 現在のゴール数の表示
@@ -70,6 +68,7 @@ class Judge
   end
  #--------------5回蹴り終わった後の勝敗判定--------------------------
   def judgment 
+
     # USERの合計得点の表示
     total_goal_message(@user_goal, @com_goal)
   
@@ -87,20 +86,7 @@ class Judge
 
   # 結果の表示
   def result 
-
-     #お互いの結果を表示するメソッドを呼び出す
-    if  @user_goal > @com_goal
-       win_effect
-    else
-      @user_goal < @com_goal
-      lose_effect
-    end
+    @user_goal > @com_goal ? win_effect : lose_effect
   end
 
-  # USERと COMの選んだコースを取得する
-  def select_params(**params)
-    @user_select = params[:user_select]
-    @com_select = params[:com_select]
-  end
-
- end
+end

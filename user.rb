@@ -27,13 +27,8 @@ class User  < Player
       not_select_kick_message
     end
     
-    #以下まとめられないか？
-
     #コースを変数に格納
-    select_num = COURSE_LIST[select_num - 1]
-  
-    # 蹴るエフェクト
-    kick_message(select_num)  
+    return kick_num = COURSE_LIST[select_num - 1]
 
   end
   #--------------------USERの守るコースの決定する--------------------
@@ -57,13 +52,8 @@ class User  < Player
         not_select_save_message
     end 
     
-    
-    #以下まとめられないか？
-
     #コースを変数に格納
-    select_num  = COURSE_LIST[select_num - 1]
-    
-    # 守るエフェクト
-    save_message(select_num)
+    return save_num  = COURSE_LIST[select_num - 1]
+
   end
 end

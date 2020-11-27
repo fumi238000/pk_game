@@ -31,8 +31,7 @@ class SuddenDeath
     while true
       # 「シュートの威力」を数値として受け取る
       @select = gets.chomp.to_i
-
-      
+     
       # 正しく入力できていれば進み、それ以外は再度入力を促す
       if 1 <= @select  &&  @select <= 100 
     
@@ -51,12 +50,9 @@ class SuddenDeath
      
   #--------------勝敗の判断--------------------------
   def sudden_death_judge
-
-    #COMの数値を決定する
-    @num  = rand(100)
     
-    #２つの数字の合計を変数に格納
-    decide_num =  @select + @num
+    #「ユーザーが入力した数字」 ＋ 「ランダムの数値」 の合計を変数に格納
+    decide_num =  @select + rand(100)
 
     #合計値が奇数で勝ち、偶数で負け
     decide_num.odd? ? win : lose

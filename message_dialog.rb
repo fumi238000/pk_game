@@ -59,13 +59,13 @@ module MessageDialog
 #------------------------------------------------------ 共通のメッセージ
 
   # 蹴る時のメッセージ
-  def kick_message(select_num)
+  def kick_message(kick_num)
     
     puts <<~TEXT
     
          -------------------------KICK-----------------------------
     
-                キッカーは[[  #{select_num[:couse]}  ]]に蹴った！
+                キッカーは[[  #{kick_num[:couse]}  ]]に蹴った！
     
          -------------------------KICK-----------------------------
     
@@ -73,12 +73,12 @@ module MessageDialog
   end
   
   # 守る時のメッセージ
-  def save_message(select_num)
+  def save_message(save_num)
     puts <<~TEXT
     
          -------------------------SAVE-----------------------------
          
-                  GKは[[  #{select_num[:couse]}  ]]へ飛んだ！
+                  GKは[[  #{save_num[:couse]}  ]]へ飛んだ！
          
          -------------------------SAVE-----------------------------
     
