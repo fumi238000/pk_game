@@ -90,6 +90,8 @@ module MessageDialog
       
 #----------------------------------------------------結果判定のメッセージ
 
+  #ここもまとめることができるか？
+
   #現在の合計点を表示（USER）
   def user_now_goal_message(user_goal)
     puts <<~TEXT

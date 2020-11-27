@@ -8,7 +8,6 @@ class User  < Player
 
 #--------------------USERのシュートコースの決定する--------------------
   def select_kick_course(kick_count)
-
     while true
 
       # キッカーであることを表示
@@ -27,15 +26,16 @@ class User  < Player
       #エラーメッセージ
       not_select_kick_message
     end
-      
-      #コースを変数に格納
-      select_num = COURSE_LIST[select_num - 1]
+    
+    #以下まとめられないか？
+
+    #コースを変数に格納
+    select_num = COURSE_LIST[select_num - 1]
   
-      # 蹴るエフェクト
-      kick_message(select_num)  
+    # 蹴るエフェクト
+    kick_message(select_num)  
 
   end
-  
   #--------------------USERの守るコースの決定する--------------------
   def user_save_course(kick_count)
     while true
@@ -55,22 +55,15 @@ class User  < Player
 
       #エラーメッセージ
         not_select_save_message
-      end 
-
-      select_num  = COURSE_LIST[select_num - 1]
+    end 
     
-      # 守るエフェクト
-      save_message(select_num)
+    
+    #以下まとめられないか？
+
+    #コースを変数に格納
+    select_num  = COURSE_LIST[select_num - 1]
+    
+    # 守るエフェクト
+    save_message(select_num)
   end
-  
-#--------------------キッカーの番号--------------------
-  # 何人目かを表示する
-  def kicker_num(kick_count)
-    puts <<~TEXT
-
-      "USER 「#{kick_count}人目」のキッカーです"
-
-    TEXT
-  end
-
 end
