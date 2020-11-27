@@ -5,8 +5,6 @@ class Player
 #--------------------共通処理--------------------
   attr_accessor :user_goal, :com_goal
 
-  #以下corse_listに切り分け予定
-
   # 方向
   RIGHT = "<<<<<<<<--------右"
   LEFT = "左-------->>>>>>>>"
