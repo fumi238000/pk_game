@@ -1,9 +1,9 @@
 require './user'
 require './com'
 require './player'
-require './effect'
-require './message_dialog'
 require './handicap'
+require './modules/effect'
+require './modules/message_dialog'
 
 class GameController
   include Effect

@@ -1,4 +1,4 @@
-require './message_dialog'
+require './modules/message_dialog'
 
 class Handicap
   include MessageDialog

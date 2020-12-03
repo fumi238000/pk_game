@@ -1,9 +1,9 @@
 require './player'
 require './user'
 require './com'
-require './message_dialog'
 require './sudden_death'
-require './effect'
+require './modules/message_dialog'
+require './modules/effect'
 
 class Judge
   include Effect
