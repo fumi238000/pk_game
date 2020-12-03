@@ -1,6 +1,6 @@
 require './player'
-require './effect'
-require './message_dialog'
+require './modules/effect'
+require './modules/message_dialog'
 
 class Com < Player
   include Effect

@@ -1,4 +1,4 @@
-require'./effect'
+require './modules/effect'
 
 class Player
   include Effect

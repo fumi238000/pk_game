@@ -1,5 +1,5 @@
-require './message_dialog'
-require './effect'
+require './modules/message_dialog'
+require './modules/effect'
 
 class SuddenDeath
   include Effect
