@@ -20,7 +20,6 @@ class Judge
 #--------------USERキックの判定--------------------------
   def user_goal_determination(kick_num, save_num)
     
-    #
     kick_message(kick_num)
     save_message(save_num)
 
@@ -84,7 +83,10 @@ class Judge
     end
   end
 
+
+  
   #--------------最終結果--------------------------
+private
 
   def result 
     @user_goal > @com_goal ? win_effect : lose_effect
