@@ -11,7 +11,7 @@ class GameController
 
 #--------------------定数--------------------
   #初期設定では5回ずつ蹴る
-  GAME_NUM = 0
+  GAME_NUM = 5
 
 #--------------------メソッド--------------------
 
@@ -26,8 +26,8 @@ class GameController
     kick_count = 0
 
     #<<<<<--------------------ハンデの設定-------------------->>>>>
-    judge = handicap.decide_handicap
-    
+    judge = Judge.new(handicap.decide_handicap)
+
     #<<<<<--------------------start PK-------------------->>>>>
     # PK戦開始
     start_pk_effect
@@ -66,10 +66,4 @@ class GameController
     judge.judgment
 
   end
-
-
-
-
-
-
 end

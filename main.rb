@@ -1,5 +1,7 @@
 require './judge'
 require './game_controller'
+require './modules/message_dialog'
+include MessageDialog
 
 #--------------------メインの処理--------------------
   # game_controllerのインスタンスを生成
@@ -14,18 +16,10 @@ require './game_controller'
     answer = gets.chomp.to_i
 
     if answer == 1
-    puts <<~TEXT
-
-
-
-
-          ----------------------
-               再チャレンジ
-          ----------------------
-
-    TEXT
-  
-   else
-     puts "遊んでいただき、ありがとうございました"
-   end
+      restart_game_message  
+    else
+      puts "遊んでいただき、ありがとうございました"
+      break
+    end
+    
   end

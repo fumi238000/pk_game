@@ -3,7 +3,7 @@ require './modules/message_dialog'
 class Handicap
   include MessageDialog
 
-#--------------------ハンデを決める--------------------
+#--------------------ハンデを決める---------------------------
   def decide_handicap
     handicap_message
 
@@ -32,7 +32,7 @@ class Handicap
 
 private
 
-#--------------------ハンデあり--------------------
+#--------------------ハンデあり------------------------------
 def handicap
   puts "0~3点までハンデを入力してください"
 
@@ -44,16 +44,16 @@ def handicap
   handicap_num_message(user_hand,com_hand)
   
   #ハンデを初期値に設定
-  return judge = Judge.new(user_goal: user_hand, com_goal: com_hand)
+  return hand = {user_goal: user_hand, com_goal: com_hand}
 
 end
 
-
-#--------------------ハンデなし--------------------
+#--------------------ハンデなし-----------------------------
 def no_handicap 
   puts "ゲームをスタートします"
-  return judge = Judge.new(user_goal: 0, com_goal: 0)
+  hand = {user_goal: 0, com_goal: 0}
 end
+
 
 #--------------------USERのハンデを決める--------------------
   def user_dicide_handicap
