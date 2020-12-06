@@ -5,8 +5,6 @@ require 'pry'
 include MessageDialog
 
 #--------------------メインの処理--------------------
-  
-  binding.pry
   # game_controllerのインスタンスを生成
   game_controller = GameController.new
 

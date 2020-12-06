@@ -17,55 +17,34 @@ class Judge
     @com_goal  = params[:com_goal]
   end
   
-#--------------USERキックの判定--------------------------
-  def user_goal_determination(kick_num, save_num)
-    
-    kick_message(kick_num)
-    save_message(save_num)
+#--------------キックの判定--------------------------
 
-    # userとcomの数値を比較
-    if kick_num == save_num
-    
-      # セーブした場合の処理
-      save_effect
+# ここにキッカーを入れたい
+def goal_determination(kick_num, save_num, kicker)
 
-    else
+  save_message(save_num)
+  kick_message(kick_num)
 
-      # 得点した場合の処理
-      get_goal_effect
-      @user_goal += 1
 
+  # userとcomの数値を比較
+  if kick_num == save_num
+
+    # セーブした場合の処理
+    save_effect
+
+   else
+
+    # 得点した場合の処理
+    get_goal_effect
+    if kicker == "user"? @user_goal += 1 : @com_goal += 1
     end
-
-    # 現在のゴール数の表示
-    user_now_goal_message(@user_goal)
-
   end
 
-#--------------COMキックの判定--------------------------
-  def com_goal_determination(kick_num, save_num)
-    
-    save_message(save_num)
-    kick_message(kick_num)
+   # 現在のゴール数の表示
+   user_now_goal_message(@user_goal)
+   com_now_goal_message(@com_goal)
 
-    # userとcomの数値を比較
-    if kick_num == save_num
-
-      # セーブした場合の処理
-      save_effect
-
-    else
-
-      # 得点した場合の処理
-      get_goal_effect
-      @com_goal += 1
-
-    end
-
-    # 現在のゴール数の表示
-    com_now_goal_message(@com_goal)
-
-  end
+ end
  #--------------5回蹴り終わった後の勝敗判定--------------------------
   def judgment
 
@@ -82,11 +61,9 @@ class Judge
       result
     end
   end
-
-
   
   #--------------最終結果--------------------------
-private
+  private
 
   def result 
     @user_goal > @com_goal ? win_effect : lose_effect
