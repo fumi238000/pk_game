@@ -20,7 +20,7 @@ class SuddenDeath
   end
 
 
-  private
+private
 #--------------ユーザーの「シュートの威力」を決定--------------------------
   def decide_shooting_power
     #「シュートの威力」の入力を促す
@@ -49,7 +49,7 @@ class SuddenDeath
 #--------------勝敗の判断--------------------------
   def sudden_death_judge
     
-    #「ユーザーが入力した数字」 ＋ 「ランダムの数値」 の合計を変数に格納
+    #「ユーザーが入力した数字」＋ 「ランダムの数値」 の合計を変数に格納
     decide_num =  @select + rand(100)
     
     #合計値が奇数で勝ち、偶数で負け

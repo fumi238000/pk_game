@@ -18,33 +18,31 @@ class Judge
   end
   
 #--------------キックの判定--------------------------
+  def goal_determination(kick_num, save_num, kicker)
 
-# ここにキッカーを入れたい
-def goal_determination(kick_num, save_num, kicker)
+    save_message(save_num)
+    kick_message(kick_num)
 
-  save_message(save_num)
-  kick_message(kick_num)
+    # userとcomの数値を比較
+    if kick_num == save_num
 
+      # セーブした場合の処理
+      save_effect
 
-  # userとcomの数値を比較
-  if kick_num == save_num
+    else
 
-    # セーブした場合の処理
-    save_effect
-
-   else
-
-    # 得点した場合の処理
-    get_goal_effect
-    if kicker == "user"? @user_goal += 1 : @com_goal += 1
+      # 得点した場合の処理
+      get_goal_effect
+      if kicker == "user"? @user_goal += 1 : @com_goal += 1
+      end
+   
     end
+
+    # 現在のゴール数の表示
+    user_now_goal_message(@user_goal)
+    com_now_goal_message(@com_goal)
+
   end
-
-   # 現在のゴール数の表示
-   user_now_goal_message(@user_goal)
-   com_now_goal_message(@com_goal)
-
- end
  #--------------5回蹴り終わった後の勝敗判定--------------------------
   def judgment
 
