@@ -9,12 +9,10 @@ class GameController
   include Effect
   include MessageDialog
 
-#--------------------定数--------------------
   #初期設定では5回ずつ蹴る
   GAME_NUM = 5
 
 #--------------------メソッド--------------------
-
   # PK戦
   def pk
     #インスタンスの生成
@@ -41,9 +39,11 @@ class GameController
 
       # COMの守るエリアの決定
       save_num = com.com_save_course
+   
+      # kicker = true
 
-      # 結果の判定
-      judge.user_goal_determination(kick_num, save_num)
+      #結果の判定 サンプル
+      judge.goal_determination(kick_num, save_num, kicker = "user")
 
       #--------------------COMキック--------------------
       # USERの守るエリアの決定
@@ -53,13 +53,11 @@ class GameController
       kick_num = com.select_kick_course
 
       # 結果の判定
-      judge.com_goal_determination(kick_num, save_num)
+      judge.goal_determination(kick_num, save_num,kicker= "com")
 
     end
 
     finish_pk_message(kick_count)
-
-
     #<<<<<--------------------finish PK-------------------->>>>>
 
     # 結果の判断
