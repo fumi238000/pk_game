@@ -12,9 +12,6 @@ class GameController
   #初期設定では5回ずつ蹴る
   GAME_NUM = 5
 
-  #インスタンス定数
-  USER = true
-  COM = false
 
 #--------------------メソッド--------------------
   # PK戦
@@ -48,7 +45,7 @@ class GameController
         save_num = com.com_save_course
     
         #結果の判定
-        judge.goal_determination(kick_num, save_num, GameController::USER)
+        judge.goal_determination(kick_num, save_num, Judge::USER)
 
         #--------------------COMキック--------------------
         # USERの守るエリアの決定
@@ -58,7 +55,7 @@ class GameController
         kick_num = com.select_kick_course
 
         # 結果の判定
-        judge.goal_determination(kick_num, save_num, GameController::COM)
+        judge.goal_determination(kick_num, save_num, Judge::COM)
 
       end
 

@@ -16,7 +16,10 @@ class Judge
     @user_goal = params[:user_goal]
     @com_goal  = params[:com_goal]
   end
-  
+
+  #インスタンス定数
+  USER = true
+  COM = false
 #--------------キックの判定--------------------------
   def goal_determination(kick_num, save_num, kicker)
     
