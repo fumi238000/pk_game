@@ -168,7 +168,7 @@ end
   end
 
 #----------------------------------------------------再チャレンジ
-  def restart_game_message
+  def retry_game_message
     puts <<~TEXT
 
 
