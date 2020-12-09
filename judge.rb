@@ -19,7 +19,7 @@ class Judge
   
 #--------------キックの判定--------------------------
   def goal_determination(kick_num, save_num, kicker)
-
+    
     save_message(save_num)
     kick_message(kick_num)
 
@@ -33,9 +33,10 @@ class Judge
 
       # 得点した場合の処理
       get_goal_effect
-      if kicker == "user"? @user_goal += 1 : @com_goal += 1
-      end
-   
+
+      #ゴールしたプレイヤーにゴールが加算される
+      kicker ? @user_goal += 1 : @com_goal += 1
+
     end
 
     # 現在のゴール数の表示
