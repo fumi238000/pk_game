@@ -49,7 +49,6 @@ class GameController
     
         #結果の判定
         judge.goal_determination(kick_num, save_num, USER)
-
         # judge.goal_determination(kick_num, save_num, judge::USER)
 
         #--------------------COMキック--------------------
@@ -61,6 +60,7 @@ class GameController
 
         # 結果の判定
         judge.goal_determination(kick_num, save_num, COM)
+        # judge.goal_determination(kick_num, save_num, judge::COM)
 
       end
 
