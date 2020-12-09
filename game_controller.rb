@@ -48,8 +48,7 @@ class GameController
         save_num = com.com_save_course
     
         #結果の判定
-        judge.goal_determination(kick_num, save_num, USER)
-        # judge.goal_determination(kick_num, save_num, judge::USER)
+        judge.goal_determination(kick_num, save_num, GameController::USER)
 
         #--------------------COMキック--------------------
         # USERの守るエリアの決定
@@ -59,8 +58,7 @@ class GameController
         kick_num = com.select_kick_course
 
         # 結果の判定
-        judge.goal_determination(kick_num, save_num, COM)
-        # judge.goal_determination(kick_num, save_num, judge::COM)
+        judge.goal_determination(kick_num, save_num, GameController::COM)
 
       end
 
