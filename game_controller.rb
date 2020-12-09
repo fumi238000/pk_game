@@ -18,54 +18,79 @@ class GameController
 
 #--------------------メソッド--------------------
   # PK戦
-  def pk
-    #インスタンスの生成
-    user = User.new
-    com = Com.new
-    handicap = Handicap.new
+  class << self
 
-    #蹴る回数のカウント
-    kick_count = 0
+    def pk
+      
+      #インスタンスの生成
+      user = User.new
+      com = Com.new
+      handicap = Handicap.new
 
-    #<<<<<--------------------ハンデの設定-------------------->>>>>
-    judge = Judge.new(handicap.decide_handicap)
+      #蹴る回数のカウント
+      kick_count = 0
 
-    #<<<<<--------------------start PK-------------------->>>>>
-    # PK戦開始
-    start_pk_effect
+      #<<<<<--------------------ハンデの設定-------------------->>>>>
+      judge = Judge.new(handicap.decide_handicap)
 
-    while kick_count < GAME_NUM
-      kick_count += 1
+      #<<<<<--------------------start PK-------------------->>>>>
+      # PK戦開始
+      start_pk_effect
 
-      #--------------------USERキック--------------------
-      # USERのシュートコースの決定
-      kick_num = user.select_kick_course(kick_count)
+      while kick_count < GAME_NUM
+        kick_count += 1
 
-      # COMの守るエリアの決定
-      save_num = com.com_save_course
-   
-      #結果の判定
-      judge.goal_determination(kick_num, save_num, USER)
+        #--------------------USERキック--------------------
+        # USERのシュートコースの決定
+        kick_num = user.select_kick_course(kick_count)
 
-      # judge.goal_determination(kick_num, save_num, judge::USER)
+        # COMの守るエリアの決定
+        save_num = com.com_save_course
+    
+        #結果の判定
+        judge.goal_determination(kick_num, save_num, USER)
 
-      #--------------------COMキック--------------------
-      # USERの守るエリアの決定
-      save_num = user.user_save_course(kick_count)
+        # judge.goal_determination(kick_num, save_num, judge::USER)
 
-      # COMのシュートコースの決定
-      kick_num = com.select_kick_course
+        #--------------------COMキック--------------------
+        # USERの守るエリアの決定
+        save_num = user.user_save_course(kick_count)
 
-      # 結果の判定
-      judge.goal_determination(kick_num, save_num, COM)
+        # COMのシュートコースの決定
+        kick_num = com.select_kick_course
+
+        # 結果の判定
+        judge.goal_determination(kick_num, save_num, COM)
+
+      end
+
+      finish_pk_message(kick_count)
+      #<<<<<--------------------finish PK-------------------->>>>>
+
+      # 結果の判断
+      judge.judgment
+
+      retry_game
 
     end
 
-    finish_pk_message(kick_count)
-    #<<<<<--------------------finish PK-------------------->>>>>
+    
+    private
+    
+    def retry_game
+      print "もう一度チャレンジする場合は「１」を押してください > "
+      select = gets.chomp.to_i
+        
+      if select == 1
+        retry_game_message  
+        pk
 
-    # 結果の判断
-    judge.judgment
-
+      else
+        puts "遊んでいただき、ありがとうございました"
+        return
+      end  
+    
+    end
+    
   end
 end
