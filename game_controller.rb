@@ -77,7 +77,7 @@ class GameController
       select = gets.chomp.to_i
         
       if select == 1
-        retry_game_message  
+        retry_game_message
         pk
 
       else
