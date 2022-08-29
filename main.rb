@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './judge'
 require './game_controller'
 require './modules/message_dialog'
@@ -7,5 +9,5 @@ include MessageDialog
 include Effect
 
 #--------------------メインの処理--------------------
-  #PKメソッドの呼び出し
-  GameController.pk
+# PKメソッドの呼び出し
+GameController.pk
