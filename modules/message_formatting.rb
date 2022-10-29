@@ -1,5 +1,3 @@
-# このファイルを別モジュールファイルで使用できなければ、削除する
-
 # frozen_string_literal: true
 
 module MessageFormatting
