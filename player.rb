@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
 require './modules/effect'
+require './modules/message_formatting'
 
 class Player
   include Effect
+  include MessageFormatting
   #--------------------共通処理--------------------
   attr_accessor :user_goal, :com_goal
 
   # 方向
-  RIGHT = '<<<<<<<<--------右'
-  LEFT = '左-------->>>>>>>>'
-  CENTER = '<<<----中央---->>>'
+  LEFT   = '左 <<<<<<<<---------'
+  RIGHT  = '--------->>>>>>>> 右'
+  CENTER = '>>>---- 中央 ----<<<'
 
   # コースリスト
   # パターン１
@@ -29,9 +31,11 @@ class Player
 
   # プレイヤーに提示する選択肢の表示
   def select_list
+    puts
     COURSE_LIST.each.with_index(1) do |course, i|
-      puts "#{i}.[ #{course[:couse]} ]"
+      puts "#{i}. [ #{course[:couse]} ]".string_center(' ')
     end
+    puts
   end
 
   # リストの数
