@@ -3,11 +3,8 @@
 # 定義
 # effect.rbに定義されていな文章を「message_dialog」として定義する
 
-# TODO: モジュールの中にモジュールを定義する方法
-
-module MessageDialog
-  # TODO: 定義位置をリファクタリング
-  # 参考: https://www.techscore.com/blog/2012/12/25/ruby-%E3%81%A7%E3%83%9E%E3%83%AB%E3%83%81%E3%83%90%E3%82%A4%E3%83%88%E6%96%87%E5%AD%97%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6-ljust-%E3%81%97%E3%81%A6%E3%82%82%E7%B6%BA%E9%BA%97%E3%81%AB%E6%8F%83/
+module MessageFormatting
+  # MEMO: #51
   # 文字をいい感じに中央寄せするメソッド
   def string_center(padding = ' ')
     width = 50
@@ -15,8 +12,12 @@ module MessageDialog
     padding_size = [0, width - output_width].max
     padding * (padding_size / 2) + self + padding * (padding_size / 2)
   end
+end
 
-  #-------------------------------------------------------HANDICAPメッセージ
+#-------------------------------------------------------HANDICAPメッセージ
+
+module MessageDialog
+  include MessageFormatting
 
   # TODO: ヒアドキュメントで表示したい。
   def handicap_message
@@ -29,19 +30,6 @@ module MessageDialog
     puts
     puts
   end
-
-  # MEMO: 以前は、ヒアドキュメントで記述していた
-
-  # def handicap_message
-  #   puts <<~TEXT
-
-  #     -------------------------------------
-  #      ゲームを始める前に、ハンデを設定できます。
-  #            ハンデを設定しますか？
-  #     -------------------------------------
-
-  #   TEXT
-  # end
 
   def handicap_num_message(user_hand, com_hand)
     puts <<~TEXT
@@ -252,3 +240,17 @@ module MessageDialog
     TEXT
   end
 end
+
+# MEMO: handicap_messageメソッドは、以前は、ヒアドキュメントで記述していた。
+# TODO: 今後置き換えを検討する
+
+# def handicap_message
+#   puts <<~TEXT
+
+#     -------------------------------------
+#      ゲームを始める前に、ハンデを設定できます。
+#            ハンデを設定しますか？
+#     -------------------------------------
+
+#   TEXT
+# end
