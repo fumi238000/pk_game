@@ -18,13 +18,16 @@ module MessageDialog
 
   #-------------------------------------------------------HANDICAPメッセージ
 
+  # TODO: ヒアドキュメントで表示したい。
   def handicap_message
-    # TODO: 改行を入れる
+    puts
+    puts
     puts ''.string_center('-')
     puts 'ゲームを始める前に、ハンデを設定できます。'.string_center
     puts 'ハンデを設定しますか？'.string_center
     puts ''.string_center('-')
-    # TODO: 改行を入れる
+    puts
+    puts
   end
 
   # MEMO: 以前は、ヒアドキュメントで記述していた
