@@ -19,15 +19,14 @@ end
 module MessageDialog
   include MessageFormatting
 
-  # TODO: ヒアドキュメントで表示したい。
   def handicap_message
     puts
-    puts
-    puts ''.string_center('-')
-    puts 'ゲームを始める前に、ハンデを設定できます。'.string_center
-    puts 'ハンデを設定しますか？'.string_center
-    puts ''.string_center('-')
-    puts
+    puts "".string_center('-')
+    puts <<-TEXT.string_center(' ')
+      ゲームを始める前に、ハンデを設定できます。
+      ハンデを設定しますか？
+    TEXT
+    puts "".string_center('-')
     puts
   end
 
